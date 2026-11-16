@@ -1,0 +1,206 @@
+export type OperatingSystemCategory = "桌面與筆電" | "伺服器與雲端" | "行動裝置" | "開發與自架";
+
+export interface OperatingSystemProfile {
+  slug: string;
+  name: string;
+  family: string;
+  officialSite: string;
+  categories: OperatingSystemCategory[];
+  summary: string;
+  bestFor: string;
+  strengths: string[];
+  considerations: string[];
+}
+
+export const operatingSystemCategories: OperatingSystemCategory[] = [
+  "桌面與筆電",
+  "伺服器與雲端",
+  "行動裝置",
+  "開發與自架",
+];
+
+export const operatingSystems: OperatingSystemProfile[] = [
+  {
+    slug: "windows-11",
+    name: "Windows 11",
+    family: "Windows",
+    officialSite: "https://www.microsoft.com/windows/windows-11",
+    categories: ["桌面與筆電", "開發與自架"],
+    summary: "廣泛使用的桌面作業系統，支援多元硬體、商業軟體與遊戲。",
+    bestFor: "需要廣泛桌面軟體相容性、PC 遊戲支援，或使用 WSL 進行 Linux 開發的個人與團隊。",
+    strengths: ["硬體與商業應用程式支援範圍廣", "可透過 WSL 使用 Linux 開發工具"],
+    considerations: ["系統需求與更新政策需符合裝置管理規範", "部分進階功能和管理方式依版本而異"],
+  },
+  {
+    slug: "windows-server",
+    name: "Windows Server",
+    family: "Windows Server",
+    officialSite: "https://www.microsoft.com/windows-server",
+    categories: ["伺服器與雲端"],
+    summary: "面向企業基礎設施的伺服器作業系統，整合 Windows 管理與目錄服務。",
+    bestFor: "依賴 Active Directory、Windows 應用程式或 Microsoft 伺服器產品的組織。",
+    strengths: ["與 Microsoft 企業管理工具整合", "支援常見的 Windows Server 工作負載"],
+    considerations: ["授權、版本與存取權成本需納入規劃", "需依服務需求設計更新、備援與安全管理"],
+  },
+  {
+    slug: "macos",
+    name: "macOS",
+    family: "Apple Darwin",
+    officialSite: "https://www.apple.com/macos/",
+    categories: ["桌面與筆電", "開發與自架"],
+    summary: "Apple 電腦使用的桌面作業系統，結合 Unix 工具與 Apple 生態系服務。",
+    bestFor: "使用 Mac 工作、開發 Apple 平台應用，或重視 Apple 裝置整合的使用者。",
+    strengths: ["與 Apple 硬體和服務整合度高", "提供 Unix 式命令列工具和常見開發工具"],
+    considerations: [
+      "主要支援 Apple 自家硬體",
+      "某些企業軟體、遊戲或硬體工具的支援不如 Windows 廣",
+    ],
+  },
+  {
+    slug: "ubuntu",
+    name: "Ubuntu",
+    family: "Linux（Debian 系）",
+    officialSite: "https://ubuntu.com/",
+    categories: ["桌面與筆電", "伺服器與雲端", "開發與自架"],
+    summary: "常見的 Linux 發行版，提供桌面與伺服器版本，並有廣泛的雲端支援。",
+    bestFor: "希望使用文件資源豐富、容易取得雲端映像，並能涵蓋桌面到伺服器的 Linux 環境。",
+    strengths: ["雲端平台和開發工具支援廣", "LTS 版本提供較長期的維護週期"],
+    considerations: ["需理解套件來源、Snap 與 APT 等不同安裝方式", "LTS 和一般版本的更新節奏不同"],
+  },
+  {
+    slug: "debian",
+    name: "Debian",
+    family: "Linux",
+    officialSite: "https://www.debian.org/",
+    categories: ["桌面與筆電", "伺服器與雲端", "開發與自架"],
+    summary: "由社群維護的 Linux 發行版，以穩定版本和廣泛的套件支援著稱。",
+    bestFor: "偏好穩定、可預期更新，或希望使用大量架構與軟體套件的伺服器和桌面環境。",
+    strengths: ["支援多種處理器架構與豐富套件", "穩定版適合重視可預測變更的環境"],
+    considerations: ["穩定版套件通常較不追求最新版本", "使用者需自行選擇發行版版本和桌面環境"],
+  },
+  {
+    slug: "fedora",
+    name: "Fedora Linux",
+    family: "Linux（RPM 系）",
+    officialSite: "https://fedoraproject.org/",
+    categories: ["桌面與筆電", "伺服器與雲端", "開發與自架"],
+    summary: "由社群推動的 Linux 發行版，較早採用多項上游技術與新版本套件。",
+    bestFor: "希望使用較新的 Linux 桌面與開發工具，並願意跟進較頻繁版本更新的使用者。",
+    strengths: ["套件和平台技術更新較快", "提供 Workstation、Server 與其他版本選擇"],
+    considerations: ["版本生命週期較短，需要定期升級", "新版本變化可能要求團隊調整工具或流程"],
+  },
+  {
+    slug: "linux-mint",
+    name: "Linux Mint",
+    family: "Linux（Ubuntu / Debian 系）",
+    officialSite: "https://linuxmint.com/",
+    categories: ["桌面與筆電", "開發與自架"],
+    summary: "以桌面易用性為重點的 Linux 發行版，提供多種桌面環境版本。",
+    bestFor: "想從 Windows 桌面轉換到 Linux，並偏好熟悉桌面工作流程的個人使用者。",
+    strengths: ["桌面操作方式容易上手", "可選擇不同桌面環境和套件基礎"],
+    considerations: ["主要定位是桌面而非企業伺服器平台", "硬體周邊的相容性仍應先確認"],
+  },
+  {
+    slug: "arch-linux",
+    name: "Arch Linux",
+    family: "Linux",
+    officialSite: "https://archlinux.org/",
+    categories: ["桌面與筆電", "開發與自架"],
+    summary: "採滾動更新並提供精簡基礎系統的 Linux 發行版，使用者可自行組合環境。",
+    bestFor: "希望自行掌控安裝、桌面與套件版本，並願意閱讀文件和維護系統的 Linux 使用者。",
+    strengths: ["可從精簡基礎安裝客製環境", "套件更新快速，社群文件內容豐富"],
+    considerations: ["滾動更新需要使用者持續維護", "不熟悉 Linux 管理者的入門成本較高"],
+  },
+  {
+    slug: "red-hat-enterprise-linux",
+    name: "Red Hat Enterprise Linux",
+    family: "Linux（RPM 系）",
+    officialSite: "https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux",
+    categories: ["伺服器與雲端"],
+    summary: "面向企業環境的 Linux 平台，提供商業支援、生命週期與管理工具。",
+    bestFor: "需要供應商支援、明確維護週期，或採用 Red Hat 生態系的企業工作負載。",
+    strengths: ["提供企業級支援與生命週期規劃", "與常見企業管理和容器工具整合"],
+    considerations: ["需評估訂閱授權和支援方案", "與社群發行版之間的套件和政策可能不同"],
+  },
+  {
+    slug: "alpine-linux",
+    name: "Alpine Linux",
+    family: "Linux",
+    officialSite: "https://alpinelinux.org/",
+    categories: ["伺服器與雲端", "開發與自架"],
+    summary: "以小型和簡潔為特色的 Linux 發行版，常用於容器與精簡環境。",
+    bestFor: "重視映像大小、希望使用精簡系統，且能處理不同 C 函式庫相容性的容器工作負載。",
+    strengths: ["基礎映像和安裝環境精簡", "使用 musl 與 apk 套件管理器"],
+    considerations: [
+      "部分預編譯程式預設以 glibc 為目標，可能需要調整",
+      "精簡環境仍需自行補齊除錯與維運工具",
+    ],
+  },
+  {
+    slug: "freebsd",
+    name: "FreeBSD",
+    family: "BSD",
+    officialSite: "https://www.freebsd.org/",
+    categories: ["伺服器與雲端", "開發與自架"],
+    summary: "具完整基礎系統的類 Unix 作業系統，提供伺服器、網路和儲存相關功能。",
+    bestFor: "需要 BSD 工具鏈、Jails 隔離或希望採用一致基礎系統的伺服器與自架環境。",
+    strengths: ["基礎系統與第三方套件有清楚區分", "支援 Jails、ZFS 等常用系統能力"],
+    considerations: [
+      "商用桌面軟體和硬體驅動支援範圍較 Linux 小",
+      "需確認目標應用和雲端服務對 FreeBSD 的支援",
+    ],
+  },
+  {
+    slug: "openbsd",
+    name: "OpenBSD",
+    family: "BSD",
+    officialSite: "https://www.openbsd.org/",
+    categories: ["伺服器與雲端", "開發與自架"],
+    summary: "以安全工程、簡潔設計和一致基礎系統為重點的 BSD 作業系統。",
+    bestFor: "需要精簡網路服務或重視預設安全取向，且目標硬體和軟體相容的環境。",
+    strengths: ["安全功能和程式碼審視是專案重點", "提供整合的基礎系統與文件"],
+    considerations: ["硬體、商業軟體和第三方套件選擇較少", "需確認特定服務與硬體是否受支援"],
+  },
+  {
+    slug: "chromeos",
+    name: "ChromeOS",
+    family: "ChromeOS",
+    officialSite: "https://www.google.com/chromebook/chromeos/",
+    categories: ["桌面與筆電"],
+    summary: "以網頁和雲端工作流程為核心的桌面系統，常見於 Chromebook 裝置。",
+    bestFor: "以瀏覽器、雲端服務和受管理裝置為主的教育、共享電腦或輕量工作環境。",
+    strengths: ["與 Google 帳戶及雲端服務整合", "集中管理和系統更新流程相對簡便"],
+    considerations: [
+      "離線和專業桌面軟體需求需事先確認",
+      "Linux 開發環境和 Android 應用支援依裝置而異",
+    ],
+  },
+  {
+    slug: "android",
+    name: "Android",
+    family: "Android（Linux 核心）",
+    officialSite: "https://www.android.com/",
+    categories: ["行動裝置"],
+    summary: "廣泛用於手機、平板和其他裝置的行動作業系統平台。",
+    bestFor: "需要多種裝置選擇、Google Play 生態，或開發 Android 行動應用的使用者與團隊。",
+    strengths: ["裝置與價格選擇多元", "平台工具和應用生態廣泛"],
+    considerations: [
+      "更新時程和支援週期依裝置製造商而異",
+      "不同裝置的硬體和系統客製可能影響相容性",
+    ],
+  },
+  {
+    slug: "ios",
+    name: "iOS",
+    family: "Apple Darwin",
+    officialSite: "https://www.apple.com/ios/",
+    categories: ["行動裝置"],
+    summary: "Apple iPhone 使用的行動作業系統，與 Apple 硬體及服務緊密整合。",
+    bestFor: "使用 iPhone、重視 Apple 生態系整合，或開發 iPhone 應用的使用者與團隊。",
+    strengths: ["軟硬體由同一平台整合", "系統更新和應用發布流程一致性高"],
+    considerations: [
+      "僅支援 Apple 裝置，硬體選擇有限",
+      "應用開發與發布需遵循 Apple 工具和平台政策",
+    ],
+  },
+];

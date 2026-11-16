@@ -14,11 +14,15 @@ import { Route as AdminRouteRouteImport } from './routes/admin/route'
 import { Route as SiteIndexRouteImport } from './routes/_site/index'
 import { Route as SiteDatabasesRouteImport } from './routes/_site/databases'
 import { Route as SiteFwksLibsRouteImport } from './routes/_site/fwks-libs'
+import { Route as SiteOperatingSystemsRouteImport } from './routes/_site/operating-systems'
 import { Route as AdminIndexRouteImport } from './routes/admin/index'
 import { Route as AdminAuthRouteImport } from './routes/admin/_auth'
 import { Route as AdminDashboardRouteImport } from './routes/admin/_dashboard'
 import { Route as SiteBlogIndexRouteImport } from './routes/_site/blog/index'
 import { Route as SiteBlogSlugRouteImport } from './routes/_site/blog/$slug'
+import { Route as SiteDatabasesIndexRouteImport } from './routes/_site/databases/index'
+import { Route as SiteDatabasesSlugRouteImport } from './routes/_site/databases/$slug'
+import { Route as SiteFwksLibsIndexRouteImport } from './routes/_site/fwks-libs/index'
 import { Route as SiteFwksLibsSlugRouteImport } from './routes/_site/fwks-libs/$slug'
 import { Route as SiteLanguagesSlugRouteImport } from './routes/_site/languages/$slug'
 import { Route as AdminAuthCallbackRouteImport } from './routes/admin/_auth/callback'
@@ -86,6 +90,11 @@ const SiteFwksLibsRoute = SiteFwksLibsRouteImport.update({
   path: '/fwks-libs',
   getParentRoute: () => SiteRoute,
 } as any)
+const SiteOperatingSystemsRoute = SiteOperatingSystemsRouteImport.update({
+  id: '/operating-systems',
+  path: '/operating-systems',
+  getParentRoute: () => SiteRoute,
+} as any)
 const AdminIndexRoute = AdminIndexRouteImport.update({
   id: '/',
   path: '/',
@@ -108,6 +117,21 @@ const SiteBlogSlugRoute = SiteBlogSlugRouteImport.update({
   id: '/blog/$slug',
   path: '/blog/$slug',
   getParentRoute: () => SiteRoute,
+} as any)
+const SiteDatabasesIndexRoute = SiteDatabasesIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => SiteDatabasesRoute,
+} as any)
+const SiteDatabasesSlugRoute = SiteDatabasesSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => SiteDatabasesRoute,
+} as any)
+const SiteFwksLibsIndexRoute = SiteFwksLibsIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => SiteFwksLibsRoute,
 } as any)
 const SiteFwksLibsSlugRoute = SiteFwksLibsSlugRouteImport.update({
   id: '/$slug',
@@ -352,10 +376,12 @@ const AdminDashboardSystemSupportIdRoute =
 export interface FileRoutesByFullPath {
   '/admin': typeof AdminRouteRouteWithChildren
   '/': typeof SiteIndexRoute
-  '/databases': typeof SiteDatabasesRoute
+  '/databases': typeof SiteDatabasesRouteWithChildren
   '/fwks-libs': typeof SiteFwksLibsRouteWithChildren
+  '/operating-systems': typeof SiteOperatingSystemsRoute
   '/admin/': typeof AdminIndexRoute
   '/blog/$slug': typeof SiteBlogSlugRoute
+  '/databases/$slug': typeof SiteDatabasesSlugRoute
   '/fwks-libs/$slug': typeof SiteFwksLibsSlugRoute
   '/languages/$slug': typeof SiteLanguagesSlugRoute
   '/admin/callback': typeof AdminAuthCallbackRoute
@@ -369,6 +395,8 @@ export interface FileRoutesByFullPath {
   '/admin/dashboard': typeof AdminDashboardDashboardRoute
   '/admin/profile': typeof AdminDashboardProfileRoute
   '/blog/': typeof SiteBlogIndexRoute
+  '/databases/': typeof SiteDatabasesIndexRoute
+  '/fwks-libs/': typeof SiteFwksLibsIndexRoute
   '/admin/account/security': typeof AdminDashboardAccountSecurityRoute
   '/admin/settings/dashboard': typeof AdminDashboardSettingsDashboardRoute
   '/admin/system/access-reviews': typeof AdminDashboardSystemAccessReviewsRoute
@@ -401,11 +429,11 @@ export interface FileRoutesByFullPath {
   '/admin/system/support/': typeof AdminDashboardSystemSupportIndexRoute
 }
 export interface FileRoutesByTo {
-  '/databases': typeof SiteDatabasesRoute
-  '/fwks-libs': typeof SiteFwksLibsRouteWithChildren
+  '/operating-systems': typeof SiteOperatingSystemsRoute
   '/admin': typeof AdminIndexRoute
   '/': typeof SiteIndexRoute
   '/blog/$slug': typeof SiteBlogSlugRoute
+  '/databases/$slug': typeof SiteDatabasesSlugRoute
   '/fwks-libs/$slug': typeof SiteFwksLibsSlugRoute
   '/languages/$slug': typeof SiteLanguagesSlugRoute
   '/admin/callback': typeof AdminAuthCallbackRoute
@@ -419,6 +447,8 @@ export interface FileRoutesByTo {
   '/admin/dashboard': typeof AdminDashboardDashboardRoute
   '/admin/profile': typeof AdminDashboardProfileRoute
   '/blog': typeof SiteBlogIndexRoute
+  '/databases': typeof SiteDatabasesIndexRoute
+  '/fwks-libs': typeof SiteFwksLibsIndexRoute
   '/admin/account/security': typeof AdminDashboardAccountSecurityRoute
   '/admin/settings/dashboard': typeof AdminDashboardSettingsDashboardRoute
   '/admin/system/access-reviews': typeof AdminDashboardSystemAccessReviewsRoute
@@ -454,13 +484,15 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/admin': typeof AdminRouteRouteWithChildren
   '/_site': typeof SiteRouteWithChildren
-  '/_site/databases': typeof SiteDatabasesRoute
+  '/_site/databases': typeof SiteDatabasesRouteWithChildren
   '/_site/fwks-libs': typeof SiteFwksLibsRouteWithChildren
+  '/_site/operating-systems': typeof SiteOperatingSystemsRoute
   '/admin/_auth': typeof AdminAuthRouteWithChildren
   '/admin/_dashboard': typeof AdminDashboardRouteWithChildren
   '/_site/': typeof SiteIndexRoute
   '/admin/': typeof AdminIndexRoute
   '/_site/blog/$slug': typeof SiteBlogSlugRoute
+  '/_site/databases/$slug': typeof SiteDatabasesSlugRoute
   '/_site/fwks-libs/$slug': typeof SiteFwksLibsSlugRoute
   '/_site/languages/$slug': typeof SiteLanguagesSlugRoute
   '/admin/_auth/callback': typeof AdminAuthCallbackRoute
@@ -474,6 +506,8 @@ export interface FileRoutesById {
   '/admin/_dashboard/dashboard': typeof AdminDashboardDashboardRoute
   '/admin/_dashboard/profile': typeof AdminDashboardProfileRoute
   '/_site/blog/': typeof SiteBlogIndexRoute
+  '/_site/databases/': typeof SiteDatabasesIndexRoute
+  '/_site/fwks-libs/': typeof SiteFwksLibsIndexRoute
   '/admin/_dashboard/account/security': typeof AdminDashboardAccountSecurityRoute
   '/admin/_dashboard/settings/dashboard': typeof AdminDashboardSettingsDashboardRoute
   '/admin/_dashboard/system/access-reviews': typeof AdminDashboardSystemAccessReviewsRoute
@@ -512,8 +546,10 @@ export interface FileRouteTypes {
     | '/'
     | '/databases'
     | '/fwks-libs'
+    | '/operating-systems'
     | '/admin/'
     | '/blog/$slug'
+    | '/databases/$slug'
     | '/fwks-libs/$slug'
     | '/languages/$slug'
     | '/admin/callback'
@@ -527,6 +563,8 @@ export interface FileRouteTypes {
     | '/admin/dashboard'
     | '/admin/profile'
     | '/blog/'
+    | '/databases/'
+    | '/fwks-libs/'
     | '/admin/account/security'
     | '/admin/settings/dashboard'
     | '/admin/system/access-reviews'
@@ -559,11 +597,11 @@ export interface FileRouteTypes {
     | '/admin/system/support/'
   fileRoutesByTo: FileRoutesByTo
   to:
-    | '/databases'
-    | '/fwks-libs'
+    | '/operating-systems'
     | '/admin'
     | '/'
     | '/blog/$slug'
+    | '/databases/$slug'
     | '/fwks-libs/$slug'
     | '/languages/$slug'
     | '/admin/callback'
@@ -577,6 +615,8 @@ export interface FileRouteTypes {
     | '/admin/dashboard'
     | '/admin/profile'
     | '/blog'
+    | '/databases'
+    | '/fwks-libs'
     | '/admin/account/security'
     | '/admin/settings/dashboard'
     | '/admin/system/access-reviews'
@@ -613,11 +653,13 @@ export interface FileRouteTypes {
     | '/_site'
     | '/_site/databases'
     | '/_site/fwks-libs'
+    | '/_site/operating-systems'
     | '/admin/_auth'
     | '/admin/_dashboard'
     | '/_site/'
     | '/admin/'
     | '/_site/blog/$slug'
+    | '/_site/databases/$slug'
     | '/_site/fwks-libs/$slug'
     | '/_site/languages/$slug'
     | '/admin/_auth/callback'
@@ -631,6 +673,8 @@ export interface FileRouteTypes {
     | '/admin/_dashboard/dashboard'
     | '/admin/_dashboard/profile'
     | '/_site/blog/'
+    | '/_site/databases/'
+    | '/_site/fwks-libs/'
     | '/admin/_dashboard/account/security'
     | '/admin/_dashboard/settings/dashboard'
     | '/admin/_dashboard/system/access-reviews'
@@ -705,6 +749,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SiteFwksLibsRouteImport
       parentRoute: typeof SiteRoute
     }
+    '/_site/operating-systems': {
+      id: '/_site/operating-systems'
+      path: '/operating-systems'
+      fullPath: '/operating-systems'
+      preLoaderRoute: typeof SiteOperatingSystemsRouteImport
+      parentRoute: typeof SiteRoute
+    }
     '/admin/': {
       id: '/admin/'
       path: '/'
@@ -739,6 +790,27 @@ declare module '@tanstack/react-router' {
       fullPath: '/blog/$slug'
       preLoaderRoute: typeof SiteBlogSlugRouteImport
       parentRoute: typeof SiteRoute
+    }
+    '/_site/databases/': {
+      id: '/_site/databases/'
+      path: '/'
+      fullPath: '/databases/'
+      preLoaderRoute: typeof SiteDatabasesIndexRouteImport
+      parentRoute: typeof SiteDatabasesRoute
+    }
+    '/_site/databases/$slug': {
+      id: '/_site/databases/$slug'
+      path: '/$slug'
+      fullPath: '/databases/$slug'
+      preLoaderRoute: typeof SiteDatabasesSlugRouteImport
+      parentRoute: typeof SiteDatabasesRoute
+    }
+    '/_site/fwks-libs/': {
+      id: '/_site/fwks-libs/'
+      path: '/'
+      fullPath: '/fwks-libs/'
+      preLoaderRoute: typeof SiteFwksLibsIndexRouteImport
+      parentRoute: typeof SiteFwksLibsRoute
     }
     '/_site/fwks-libs/$slug': {
       id: '/_site/fwks-libs/$slug'
@@ -1170,12 +1242,28 @@ const AdminRouteRouteWithChildren = AdminRouteRoute._addFileChildren(
   AdminRouteRouteChildren,
 )
 
+interface SiteDatabasesRouteChildren {
+  SiteDatabasesSlugRoute: typeof SiteDatabasesSlugRoute
+  SiteDatabasesIndexRoute: typeof SiteDatabasesIndexRoute
+}
+
+const SiteDatabasesRouteChildren: SiteDatabasesRouteChildren = {
+  SiteDatabasesSlugRoute: SiteDatabasesSlugRoute,
+  SiteDatabasesIndexRoute: SiteDatabasesIndexRoute,
+}
+
+const SiteDatabasesRouteWithChildren = SiteDatabasesRoute._addFileChildren(
+  SiteDatabasesRouteChildren,
+)
+
 interface SiteFwksLibsRouteChildren {
   SiteFwksLibsSlugRoute: typeof SiteFwksLibsSlugRoute
+  SiteFwksLibsIndexRoute: typeof SiteFwksLibsIndexRoute
 }
 
 const SiteFwksLibsRouteChildren: SiteFwksLibsRouteChildren = {
   SiteFwksLibsSlugRoute: SiteFwksLibsSlugRoute,
+  SiteFwksLibsIndexRoute: SiteFwksLibsIndexRoute,
 }
 
 const SiteFwksLibsRouteWithChildren = SiteFwksLibsRoute._addFileChildren(
@@ -1183,8 +1271,9 @@ const SiteFwksLibsRouteWithChildren = SiteFwksLibsRoute._addFileChildren(
 )
 
 interface SiteRouteChildren {
-  SiteDatabasesRoute: typeof SiteDatabasesRoute
+  SiteDatabasesRoute: typeof SiteDatabasesRouteWithChildren
   SiteFwksLibsRoute: typeof SiteFwksLibsRouteWithChildren
+  SiteOperatingSystemsRoute: typeof SiteOperatingSystemsRoute
   SiteIndexRoute: typeof SiteIndexRoute
   SiteBlogSlugRoute: typeof SiteBlogSlugRoute
   SiteLanguagesSlugRoute: typeof SiteLanguagesSlugRoute
@@ -1192,8 +1281,9 @@ interface SiteRouteChildren {
 }
 
 const SiteRouteChildren: SiteRouteChildren = {
-  SiteDatabasesRoute: SiteDatabasesRoute,
+  SiteDatabasesRoute: SiteDatabasesRouteWithChildren,
   SiteFwksLibsRoute: SiteFwksLibsRouteWithChildren,
+  SiteOperatingSystemsRoute: SiteOperatingSystemsRoute,
   SiteIndexRoute: SiteIndexRoute,
   SiteBlogSlugRoute: SiteBlogSlugRoute,
   SiteLanguagesSlugRoute: SiteLanguagesSlugRoute,

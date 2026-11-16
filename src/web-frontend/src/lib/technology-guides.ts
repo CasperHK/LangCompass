@@ -8,6 +8,7 @@ export type DatabaseNeed =
 export interface DatabaseProfile {
   slug: string;
   name: string;
+  officialSite: string;
   model: string;
   hosting: string;
   summary: string;
@@ -29,6 +30,7 @@ export const databases: DatabaseProfile[] = [
   {
     slug: "postgresql",
     name: "PostgreSQL",
+    officialSite: "https://www.postgresql.org/",
     model: "關聯式・SQL",
     hosting: "自管或雲端託管",
     summary: "功能完整、可擴充的開源關聯式資料庫，適合做為多數應用的可靠起點。",
@@ -40,6 +42,7 @@ export const databases: DatabaseProfile[] = [
   {
     slug: "mysql",
     name: "MySQL",
+    officialSite: "https://www.mysql.com/",
     model: "關聯式・SQL",
     hosting: "自管或雲端託管",
     summary: "成熟且普及的關聯式資料庫，常見於網站、內容管理與交易型服務。",
@@ -54,6 +57,7 @@ export const databases: DatabaseProfile[] = [
   {
     slug: "sqlite",
     name: "SQLite",
+    officialSite: "https://sqlite.org/",
     model: "關聯式・嵌入式 SQL",
     hosting: "嵌入應用程式・單一資料庫檔案",
     summary: "不需獨立資料庫伺服器的輕量選擇，資料可直接存放在本機檔案。",
@@ -65,6 +69,7 @@ export const databases: DatabaseProfile[] = [
   {
     slug: "mongodb",
     name: "MongoDB",
+    officialSite: "https://www.mongodb.com/",
     model: "文件型・NoSQL",
     hosting: "自管或雲端託管",
     summary: "以 BSON 文件儲存資料，適合資料結構會隨產品需求演進的應用。",
@@ -76,6 +81,7 @@ export const databases: DatabaseProfile[] = [
   {
     slug: "redis",
     name: "Redis",
+    officialSite: "https://redis.io/",
     model: "記憶體鍵值・資料結構",
     hosting: "自管或雲端託管",
     summary: "提供低延遲的記憶體資料存取，常作為主資料庫旁的即時資料層。",
@@ -90,6 +96,7 @@ export const databases: DatabaseProfile[] = [
   {
     slug: "clickhouse",
     name: "ClickHouse",
+    officialSite: "https://clickhouse.com/",
     model: "欄式・分析資料庫",
     hosting: "自管或雲端託管",
     summary: "針對大量事件與分析查詢設計的欄式資料庫，擅長彙總和掃描。",
@@ -104,6 +111,7 @@ export const databases: DatabaseProfile[] = [
   {
     slug: "duckdb",
     name: "DuckDB",
+    officialSite: "https://duckdb.org/",
     model: "嵌入式・欄式分析",
     hosting: "嵌入應用程式・本機分析",
     summary: "可在本機直接分析資料檔案的嵌入式分析資料庫，特別適合分析工作流程。",
@@ -118,6 +126,7 @@ export const databases: DatabaseProfile[] = [
   {
     slug: "dynamodb",
     name: "Amazon DynamoDB",
+    officialSite: "https://aws.amazon.com/dynamodb/",
     model: "鍵值・文件型",
     hosting: "AWS 全託管",
     summary: "AWS 提供的無伺服器 NoSQL 服務，適合明確且可預測的存取模式。",

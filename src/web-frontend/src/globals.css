@@ -240,6 +240,27 @@ body {
   font-family: var(--font-display), system-ui, sans-serif;
 }
 
+@keyframes language-float {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -8px;
+  }
+}
+
+@keyframes scroll-top-enter {
+  from {
+    opacity: 0;
+    transform: translateY(1rem) scale(0.82);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
 .home-hero-grid {
   background-color: #f8fafc;
   background-image: radial-gradient(circle, rgb(37 99 235 / 0.1) 1px, transparent 1px);

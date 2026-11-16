@@ -19,6 +19,9 @@ export function Footer() {
             <Link className="transition hover:text-blue-700" to="/databases">
               資料庫指南
             </Link>
+            <Link className="transition hover:text-blue-700" to="/operating-systems">
+              作業系統指南
+            </Link>
             <Link className="transition hover:text-blue-700" to="/fwks-libs">
               框架與函式庫
             </Link>

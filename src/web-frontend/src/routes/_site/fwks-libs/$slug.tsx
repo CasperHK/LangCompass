@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
+  ArrowDown,
   ArrowLeft,
   ArrowRight,
   Check,
@@ -101,25 +102,58 @@ function FrameworkLibraryDetailPage() {
               </div>
             </div>
 
-            <div className="overflow-hidden rounded-[1.75rem] bg-slate-950 p-5 shadow-[0_32px_80px_-36px_rgba(15,23,42,0.5)] sm:p-7">
-              <div className="flex items-center justify-between border-b border-white/10 pb-4">
-                <div className="flex items-center gap-2">
-                  <span className="h-2.5 w-2.5 rounded-full bg-rose-400" />
-                  <span className="h-2.5 w-2.5 rounded-full bg-amber-300" />
-                  <span className="h-2.5 w-2.5 rounded-full bg-emerald-400" />
+            <div className="relative overflow-hidden rounded-[1.75rem] border border-violet-100 bg-gradient-to-br from-white via-violet-50/80 to-fuchsia-50 p-5 shadow-[0_32px_80px_-36px_rgba(15,23,42,0.22)] sm:p-7">
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full border-[24px] border-violet-100/60"
+              />
+              <div className="relative">
+                <div className="flex items-center gap-3">
+                  <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-violet-700 text-white shadow-sm shadow-violet-900/20">
+                    <Layers3 className="h-5 w-5" aria-hidden="true" />
+                  </span>
+                  <div>
+                    <p className="text-xs font-semibold tracking-wide text-violet-700">
+                      工具適配圖
+                    </p>
+                    <p className="mt-1 text-sm font-medium text-slate-600">
+                      從產品需求一路連到技術生態
+                    </p>
+                  </div>
                 </div>
-                <span className="font-mono text-xs text-slate-400">{option.slug}</span>
-              </div>
-              <div className="flex min-h-52 flex-col justify-center py-7">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-violet-400/10 text-violet-300">
-                  <Layers3 className="h-6 w-6" aria-hidden="true" />
+
+                <div className="mt-6 space-y-2">
+                  <FitStep number="01" label="應用領域" value={option.category} />
+                  <div className="ml-5 border-l border-dashed border-violet-300 py-0.5">
+                    <ArrowDown className="ml-[-9px] h-4 w-4 bg-violet-50 text-violet-500" />
+                  </div>
+                  <FitStep
+                    featured
+                    number="02"
+                    label={option.kind}
+                    value={option.name}
+                  />
+                  <div className="ml-5 border-l border-dashed border-violet-300 py-0.5">
+                    <ArrowDown className="ml-[-9px] h-4 w-4 bg-violet-50 text-violet-500" />
+                  </div>
+                  <FitStep number="03" label="程式語言" value={option.language} />
                 </div>
-                <p className="mt-5 text-lg font-semibold text-white">從需求選擇工具</p>
-                <p className="mt-2 max-w-sm text-sm leading-6 text-slate-400">{option.bestFor}</p>
-              </div>
-              <div className="flex items-center gap-2 border-t border-white/10 pt-4 text-xs text-slate-400">
-                <Code2 className="h-4 w-4 text-violet-300" aria-hidden="true" />
-                {option.language}
+
+                <div className="mt-6 border-t border-violet-200/80 pt-5">
+                  <p className="text-xs font-semibold tracking-wide text-violet-800">
+                    常見使用情境
+                  </p>
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    {option.useCases.map((useCase) => (
+                      <span
+                        className="rounded-full border border-violet-200/80 bg-white/80 px-3 py-1.5 text-xs font-medium text-violet-900"
+                        key={useCase}
+                      >
+                        {useCase}
+                      </span>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -229,6 +263,40 @@ function FrameworkLibraryDetailPage() {
           </div>
         </aside>
       </div>
+    </div>
+  );
+}
+
+function FitStep({
+  featured = false,
+  label,
+  number,
+  value,
+}: {
+  featured?: boolean;
+  label: string;
+  number: string;
+  value: string;
+}) {
+  return (
+    <div
+      className={`flex items-center gap-3 rounded-xl border p-3.5 ${
+        featured
+          ? "border-violet-300 bg-white shadow-sm"
+          : "border-white/80 bg-white/70"
+      }`}
+    >
+      <span
+        className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-xs font-semibold ${
+          featured ? "bg-violet-700 text-white" : "bg-violet-100 text-violet-800"
+        }`}
+      >
+        {number}
+      </span>
+      <span className="min-w-0">
+        <span className="block text-xs font-medium text-slate-500">{label}</span>
+        <span className="mt-1 block break-words text-sm font-semibold text-slate-900">{value}</span>
+      </span>
     </div>
   );
 }
