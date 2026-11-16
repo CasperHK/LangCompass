@@ -65,6 +65,27 @@ const categories: {
     color: "bg-emerald-50 text-emerald-700 ring-emerald-100",
     examples: "Veryl · Spade",
   },
+  {
+    name: "應用程式與行動",
+    description: "從桌面、行動裝置到企業系統，探索不同平台的應用開發。",
+    icon: Code2,
+    color: "bg-indigo-50 text-indigo-700 ring-indigo-100",
+    examples: "Swift · Delphi · Visual Basic",
+  },
+  {
+    name: "遊戲與互動",
+    description: "認識遊戲腳本、互動體驗與可嵌入應用的語言。",
+    icon: Cpu,
+    color: "bg-rose-50 text-rose-700 ring-rose-100",
+    examples: "GDScript · Lua",
+  },
+  {
+    name: "資料庫與查詢",
+    description: "使用資料庫專用語言，在資料儲存端撰寫查詢和程序。",
+    icon: Database,
+    color: "bg-teal-50 text-teal-700 ring-teal-100",
+    examples: "PL/SQL",
+  },
 ];
 
 function HomePage() {

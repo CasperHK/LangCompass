@@ -240,6 +240,17 @@ function FrameworksLibrariesGuidePage() {
                       </span>
                     ))}
                   </div>
+                  <Link
+                    className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-violet-700 transition hover:text-violet-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-600"
+                    to="/fwks-libs/$slug"
+                    params={{ slug: option.slug }}
+                  >
+                    查看詳細介紹
+                    <ArrowRight
+                      className="h-4 w-4 transition group-hover:translate-x-1"
+                      aria-hidden="true"
+                    />
+                  </Link>
                 </article>
               ))}
             </div>

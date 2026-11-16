@@ -6,10 +6,12 @@ import {
   Code2,
   Compass,
   Cpu,
+  ExternalLink,
   Layers3,
   Lightbulb,
   Terminal,
 } from "lucide-react";
+import { LanguageArtwork } from "@/components/language-artwork";
 import { getLanguageBySlug, languages } from "@/lib/languages";
 
 export const Route = createFileRoute("/_site/languages/$slug")({
@@ -44,8 +46,9 @@ function LanguageDetailPage() {
 
   return (
     <div className="bg-white">
-      <section className="border-b border-slate-100 bg-gradient-to-b from-slate-50 to-white px-6 pb-14 pt-8 sm:pb-20">
-        <div className="mx-auto max-w-7xl">
+      <section className="relative isolate overflow-hidden border-b border-slate-100 bg-gradient-to-b from-slate-50 to-white px-6 pb-14 pt-8 sm:pb-20">
+        <LanguageArtwork slug={language.slug} category={language.category} />
+        <div className="relative z-10 mx-auto max-w-7xl">
           <nav aria-label="麵包屑" className="flex items-center gap-2 text-sm text-slate-500">
             <Link className="transition hover:text-blue-700" to="/" hash="language-index">
               語言圖鑑
@@ -91,39 +94,65 @@ function LanguageDetailPage() {
                   了解語言特色
                   <ArrowRight className="h-4 w-4" aria-hidden="true" />
                 </a>
+                <a
+                  className="inline-flex items-center gap-2 rounded-xl border border-blue-200 bg-blue-50 px-5 py-3 text-sm font-semibold text-blue-800 transition hover:border-blue-300 hover:bg-blue-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+                  href={language.officialSite}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  <ExternalLink className="h-4 w-4" aria-hidden="true" />
+                  官方網站
+                </a>
               </div>
             </div>
 
-            <div className="overflow-hidden rounded-[1.75rem] bg-slate-950 p-5 shadow-[0_32px_80px_-36px_rgba(15,23,42,0.5)] sm:p-7">
-              <div className="flex items-center justify-between border-b border-white/10 pb-4">
-                <div className="flex items-center gap-2">
-                  <span className="h-2.5 w-2.5 rounded-full bg-rose-400" />
-                  <span className="h-2.5 w-2.5 rounded-full bg-amber-300" />
-                  <span className="h-2.5 w-2.5 rounded-full bg-emerald-400" />
-                </div>
-                <span className="font-mono text-xs text-slate-400">
-                  {language.example ? "hello" : "hardware-design"}
-                  {language.example ? `.${language.slug}` : ""}
-                </span>
-              </div>
-              {language.example ? (
-                <pre className="min-h-52 overflow-x-auto py-7 font-mono text-sm leading-7 text-slate-100">
-                  <code>{language.example}</code>
-                </pre>
-              ) : (
-                <div className="flex min-h-52 flex-col justify-center py-7">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-cyan-400/10 text-cyan-300">
-                    <Cpu className="h-6 w-6" aria-hidden="true" />
+            <div className="relative isolate overflow-hidden rounded-[1.75rem] bg-slate-950 p-5 shadow-[0_32px_80px_-36px_rgba(15,23,42,0.5)] sm:p-7">
+              <div className="relative z-10">
+                <div className="flex items-center justify-between border-b border-white/10 pb-4">
+                  <div className="flex items-center gap-2">
+                    <span className="h-2.5 w-2.5 rounded-full bg-rose-400" />
+                    <span className="h-2.5 w-2.5 rounded-full bg-amber-300" />
+                    <span className="h-2.5 w-2.5 rounded-full bg-emerald-400" />
                   </div>
-                  <p className="mt-5 text-lg font-semibold text-white">以型別描述電路</p>
-                  <p className="mt-2 max-w-sm text-sm leading-6 text-slate-400">
-                    硬體描述語言用來表達電路結構、資料寬度與時脈行為，再交由硬體工具鏈實作。
-                  </p>
+                  <span className="font-mono text-xs text-slate-300">
+                    {language.example
+                      ? `hello.${language.slug}`
+                      : language.category === "晶片設計"
+                        ? "hardware-design"
+                        : language.slug}
+                  </span>
                 </div>
-              )}
-              <div className="flex items-center gap-2 border-t border-white/10 pt-4 text-xs text-slate-400">
-                <Code2 className="h-4 w-4 text-cyan-300" aria-hidden="true" />
-                {language.example ? "簡短語法示例" : "硬體設計語言"}
+                {language.example ? (
+                  <pre className="min-h-52 overflow-x-auto py-7 font-mono text-sm leading-7 text-slate-100">
+                    <code>{language.example}</code>
+                  </pre>
+                ) : (
+                  <div className="flex min-h-52 flex-col justify-center py-7">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-cyan-400/10 text-cyan-300">
+                      {language.category === "晶片設計" ? (
+                        <Cpu className="h-6 w-6" aria-hidden="true" />
+                      ) : (
+                        <Code2 className="h-6 w-6" aria-hidden="true" />
+                      )}
+                    </div>
+                    <p className="mt-5 text-lg font-semibold text-white">
+                      {language.category === "晶片設計" ? "以型別描述電路" : "語言設計重點"}
+                    </p>
+                    <p className="mt-2 max-w-sm text-sm leading-6 text-slate-300">
+                      {language.category === "晶片設計"
+                        ? "硬體描述語言用來表達電路結構、資料寬度與時脈行為，再交由硬體工具鏈實作。"
+                        : language.description}
+                    </p>
+                  </div>
+                )}
+                <div className="flex items-center gap-2 border-t border-white/10 pt-4 text-xs text-slate-300">
+                  <Code2 className="h-4 w-4 text-cyan-300" aria-hidden="true" />
+                  {language.example
+                    ? "簡短語法示例"
+                    : language.category === "晶片設計"
+                      ? "硬體設計語言"
+                      : language.category}
+                </div>
               </div>
             </div>
           </div>

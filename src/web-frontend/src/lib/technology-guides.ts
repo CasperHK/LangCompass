@@ -133,6 +133,7 @@ export type FrameworkCategory = "前端介面" | "全端應用" | "後端服務"
 export interface FrameworkLibraryProfile {
   slug: string;
   name: string;
+  officialSite: string;
   language: string;
   category: FrameworkCategory;
   kind: "框架" | "函式庫";
@@ -154,6 +155,7 @@ export const frameworksLibraries: FrameworkLibraryProfile[] = [
   {
     slug: "react",
     name: "React",
+    officialSite: "https://react.dev/",
     language: "JavaScript / TypeScript",
     category: "前端介面",
     kind: "函式庫",
@@ -166,6 +168,7 @@ export const frameworksLibraries: FrameworkLibraryProfile[] = [
   {
     slug: "nextjs",
     name: "Next.js",
+    officialSite: "https://nextjs.org/",
     language: "JavaScript / TypeScript",
     category: "全端應用",
     kind: "框架",
@@ -178,6 +181,7 @@ export const frameworksLibraries: FrameworkLibraryProfile[] = [
   {
     slug: "vue",
     name: "Vue",
+    officialSite: "https://vuejs.org/",
     language: "JavaScript / TypeScript",
     category: "前端介面",
     kind: "框架",
@@ -190,6 +194,7 @@ export const frameworksLibraries: FrameworkLibraryProfile[] = [
   {
     slug: "sveltekit",
     name: "SvelteKit",
+    officialSite: "https://svelte.dev/docs/kit/introduction",
     language: "JavaScript / TypeScript",
     category: "全端應用",
     kind: "框架",
@@ -202,6 +207,7 @@ export const frameworksLibraries: FrameworkLibraryProfile[] = [
   {
     slug: "angular",
     name: "Angular",
+    officialSite: "https://angular.dev/",
     language: "TypeScript",
     category: "前端介面",
     kind: "框架",
@@ -214,6 +220,7 @@ export const frameworksLibraries: FrameworkLibraryProfile[] = [
   {
     slug: "express",
     name: "Express",
+    officialSite: "https://expressjs.com/",
     language: "JavaScript",
     category: "後端服務",
     kind: "框架",
@@ -226,6 +233,7 @@ export const frameworksLibraries: FrameworkLibraryProfile[] = [
   {
     slug: "nestjs",
     name: "NestJS",
+    officialSite: "https://nestjs.com/",
     language: "TypeScript",
     category: "後端服務",
     kind: "框架",
@@ -238,6 +246,7 @@ export const frameworksLibraries: FrameworkLibraryProfile[] = [
   {
     slug: "fastapi",
     name: "FastAPI",
+    officialSite: "https://fastapi.tiangolo.com/",
     language: "Python",
     category: "後端服務",
     kind: "框架",
@@ -250,6 +259,7 @@ export const frameworksLibraries: FrameworkLibraryProfile[] = [
   {
     slug: "django",
     name: "Django",
+    officialSite: "https://www.djangoproject.com/",
     language: "Python",
     category: "全端應用",
     kind: "框架",
@@ -265,6 +275,7 @@ export const frameworksLibraries: FrameworkLibraryProfile[] = [
   {
     slug: "flutter",
     name: "Flutter",
+    officialSite: "https://flutter.dev/",
     language: "Dart",
     category: "跨平台應用",
     kind: "框架",
@@ -277,6 +288,7 @@ export const frameworksLibraries: FrameworkLibraryProfile[] = [
   {
     slug: "spring-boot",
     name: "Spring Boot",
+    officialSite: "https://spring.io/projects/spring-boot",
     language: "Java",
     category: "後端服務",
     kind: "框架",
