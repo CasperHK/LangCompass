@@ -6,7 +6,7 @@
 
 一個專為開發者與技術愛好者打造的現代化程式語言與技術生態導航平台。透過結構化分類、多維度對比與場景化圖鑑，幫助開發者迅速探索、評估並掌握各主流與前沿程式語言及其生態系。
 
-![](Gemini_Generated_Image_lg8g4klg8g4klg8g.jpg)
+![Entrance Image](assets/entrance_image.jpg)
 ---
 
 ## 🌟 核心特色 (Core Features)
