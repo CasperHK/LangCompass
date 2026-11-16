@@ -1,0 +1,10 @@
+{
+  "architecture": "single",
+  "frontend": "tanstack",
+  "version": "3.403.0",
+  "apps": {
+    "expo": false,
+    "desktop": false,
+    "docs": false
+  }
+}

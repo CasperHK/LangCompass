@@ -42,11 +42,10 @@
 
 ## 🛠️ 技術選型 (Tech Stack)
 
-- **前端框架**：[Grit Framework](https://gritframework.dev/)
-- **樣式與排版**：Tailwind CSS（簡潔、現代化的響應式介面設計）
-- **內容管理**：Markdown / MDX（便於技術文件的長期維護與協作）
-- **部署平台**：Cloudflare Pages / Vercel（全球 CDN 加速，確保中港台與海外流暢訪問）
-- **資料庫**：PostgreSQL
+- **應用框架**：[Grit Framework](https://gritframework.dev/)（Go + Gin/GORM API）
+- **前端**：React、TypeScript、Vite 與 TanStack Router
+- **樣式與排版**：Tailwind CSS v4
+- **資料庫**：本機開發預設使用 SQLite；可依 Grit 設定切換其他資料庫
 
 ---
 
@@ -55,16 +54,14 @@
 如果你想在本地端執行或參與本專案的內容維護，請依循以下步驟：
 
 ### 1. 環境需求
-- Node.js (>= 18.x)
-- pnpm / npm / yarn
+- Node.js (>= 22.x)、Go (>= 1.24)、pnpm
 
 ### 2. 安裝相依套件
 ```bash
-# 克隆專案
-git clone [https://github.com/your-username/programming-language-atlas.svg](https://github.com/your-username/programming-language-atlas.svg)
-cd programming-language-atlas
+# 進入 Grit 專案
+cd src/web-frontend
 
-# 安裝相依套件
+# 安裝前端相依套件
 pnpm install
 
 ```
@@ -72,11 +69,15 @@ pnpm install
 ### 3. 啟動開發伺服器
 
 ```bash
+# 僅啟動前端
 pnpm dev
+
+# 啟動 Grit API 與前端
+grit start
 
 ```
 
-開啟瀏覽器訪問 `http://localhost:4321` 即可預覽。
+前端預設位於 `http://localhost:5173`。Grit 專案與 SQLite 資料庫已包含在 `src/web-frontend`，本機開發不需要啟動 Docker。
 
 ---
 
