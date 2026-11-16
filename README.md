@@ -39,7 +39,7 @@
 
 ## 🛠️ 技術選型 (Tech Stack)
 
-- **前端框架**：Grit Framework
+- **前端框架**：[Grit Framework](https://gritframework.dev/)
 - **樣式與排版**：Tailwind CSS（簡潔、現代化的響應式介面設計）
 - **內容管理**：Markdown / MDX（便於技術文件的長期維護與協作）
 - **部署平台**：Cloudflare Pages / Vercel（全球 CDN 加速，確保中港台與海外流暢訪問）
