@@ -34,6 +34,8 @@
 4. **雲端原生與分散式基礎設施 (Cloud-Native & Distributed)**
    - *代表語言*：Go, Rust, Shell/Bash
    - *適用場景*：容器化工具、網格運算、自動化运维與命令列工具。
+5. **晶片設計（Chip Design）**
+   - *代表語言*：Veryl, Spade
 
 ---
 
