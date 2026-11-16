@@ -20,12 +20,7 @@ export const Route = createFileRoute("/_site/")({
   component: HomePage,
 });
 
-type LanguageCategory =
-  | "系統與效能"
-  | "Web 與全端"
-  | "資料科學與 AI"
-  | "雲端與分散式"
-  | "晶片設計";
+type LanguageCategory = "系統與效能" | "Web 與全端" | "資料科學與 AI" | "雲端與分散式" | "晶片設計";
 
 type CategoryFilter = "全部" | LanguageCategory;
 
@@ -178,8 +173,7 @@ function HomePage() {
   const [selectedCategory, setSelectedCategory] = useState<CategoryFilter>("全部");
   const normalizedQuery = query.trim().toLocaleLowerCase();
   const filteredLanguages = languages.filter((language) => {
-    const matchesCategory =
-      selectedCategory === "全部" || language.category === selectedCategory;
+    const matchesCategory = selectedCategory === "全部" || language.category === selectedCategory;
     const matchesQuery =
       normalizedQuery.length === 0 ||
       `${language.name} ${language.category} ${language.description}`
@@ -340,7 +334,7 @@ function HomePage() {
             {categories.map((category) => {
               const Icon = category.icon;
               const count = languages.filter(
-                (language) => language.category === category.name,
+                (language) => language.category === category.name
               ).length;
 
               return (
@@ -396,7 +390,7 @@ function HomePage() {
             </p>
           </div>
 
-          <div className="mt-8 flex flex-wrap gap-2" aria-label="依領域篩選">
+          <div className="mt-8 flex flex-wrap gap-2" role="group" aria-label="依領域篩選">
             {(["全部", ...categories.map((category) => category.name)] as CategoryFilter[]).map(
               (category) => (
                 <button
@@ -412,7 +406,7 @@ function HomePage() {
                 >
                   {category}
                 </button>
-              ),
+              )
             )}
           </div>
 

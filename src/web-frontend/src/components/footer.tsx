@@ -17,11 +17,9 @@ export function Footer() {
           </div>
         </div>
         <div className="mt-7 border-t border-slate-100 pt-5">
-          <p className="text-xs text-slate-400">
-            &copy; {new Date().getFullYear()} LangCompass
-          </p>
+          <p className="text-xs text-slate-400">&copy; {new Date().getFullYear()} LangCompass</p>
         </div>
       </div>
     </footer>
-  )
+  );
 }

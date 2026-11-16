@@ -1,9 +1,9 @@
-import { useState } from "react"
-import { Link } from "@tanstack/react-router"
-import { Compass, Menu, X } from "lucide-react"
+import { useState } from "react";
+import { Link } from "@tanstack/react-router";
+import { Compass, Menu, X } from "lucide-react";
 
 export function Navbar() {
-  const [mobileOpen, setMobileOpen] = useState(false)
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
     <nav className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/90 backdrop-blur-xl">
@@ -61,20 +61,22 @@ export function Navbar() {
       {mobileOpen ? (
         <div className="border-t border-slate-100 bg-white md:hidden" id="mobile-navigation">
           <div className="mx-auto flex max-w-7xl flex-col gap-1 px-6 py-4">
-            <a
+            <Link
               className="rounded-lg px-3 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-50"
-              href="/#categories"
               onClick={() => setMobileOpen(false)}
+              to="/"
+              hash="categories"
             >
               探索分類
-            </a>
-            <a
+            </Link>
+            <Link
               className="rounded-lg px-3 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-50"
-              href="/#language-index"
               onClick={() => setMobileOpen(false)}
+              to="/"
+              hash="language-index"
             >
               語言圖鑑
-            </a>
+            </Link>
             <Link
               className="rounded-lg px-3 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-50"
               onClick={() => setMobileOpen(false)}
@@ -86,5 +88,5 @@ export function Navbar() {
         </div>
       ) : null}
     </nav>
-  )
+  );
 }
