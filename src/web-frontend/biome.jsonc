@@ -12,6 +12,7 @@
       "!**/.turbo",
       "!**/coverage",
       "!**/.source",
+      "!api/web/**",
       // Written by tools, not people.
       "!**/routeTree.gen.ts",
       "!**/next-env.d.ts",
