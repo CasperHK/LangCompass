@@ -12,6 +12,8 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as SiteRouteImport } from './routes/_site'
 import { Route as AdminRouteRouteImport } from './routes/admin/route'
 import { Route as SiteIndexRouteImport } from './routes/_site/index'
+import { Route as SiteDatabasesRouteImport } from './routes/_site/databases'
+import { Route as SiteFwksLibsRouteImport } from './routes/_site/fwks-libs'
 import { Route as AdminIndexRouteImport } from './routes/admin/index'
 import { Route as AdminAuthRouteImport } from './routes/admin/_auth'
 import { Route as AdminDashboardRouteImport } from './routes/admin/_dashboard'
@@ -71,6 +73,16 @@ const AdminRouteRoute = AdminRouteRouteImport.update({
 const SiteIndexRoute = SiteIndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => SiteRoute,
+} as any)
+const SiteDatabasesRoute = SiteDatabasesRouteImport.update({
+  id: '/databases',
+  path: '/databases',
+  getParentRoute: () => SiteRoute,
+} as any)
+const SiteFwksLibsRoute = SiteFwksLibsRouteImport.update({
+  id: '/fwks-libs',
+  path: '/fwks-libs',
   getParentRoute: () => SiteRoute,
 } as any)
 const AdminIndexRoute = AdminIndexRouteImport.update({
@@ -334,6 +346,8 @@ const AdminDashboardSystemSupportIdRoute =
 export interface FileRoutesByFullPath {
   '/admin': typeof AdminRouteRouteWithChildren
   '/': typeof SiteIndexRoute
+  '/databases': typeof SiteDatabasesRoute
+  '/fwks-libs': typeof SiteFwksLibsRoute
   '/admin/': typeof AdminIndexRoute
   '/blog/$slug': typeof SiteBlogSlugRoute
   '/languages/$slug': typeof SiteLanguagesSlugRoute
@@ -380,6 +394,8 @@ export interface FileRoutesByFullPath {
   '/admin/system/support/': typeof AdminDashboardSystemSupportIndexRoute
 }
 export interface FileRoutesByTo {
+  '/databases': typeof SiteDatabasesRoute
+  '/fwks-libs': typeof SiteFwksLibsRoute
   '/admin': typeof AdminIndexRoute
   '/': typeof SiteIndexRoute
   '/blog/$slug': typeof SiteBlogSlugRoute
@@ -430,6 +446,8 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/admin': typeof AdminRouteRouteWithChildren
   '/_site': typeof SiteRouteWithChildren
+  '/_site/databases': typeof SiteDatabasesRoute
+  '/_site/fwks-libs': typeof SiteFwksLibsRoute
   '/admin/_auth': typeof AdminAuthRouteWithChildren
   '/admin/_dashboard': typeof AdminDashboardRouteWithChildren
   '/_site/': typeof SiteIndexRoute
@@ -483,6 +501,8 @@ export interface FileRouteTypes {
   fullPaths:
     | '/admin'
     | '/'
+    | '/databases'
+    | '/fwks-libs'
     | '/admin/'
     | '/blog/$slug'
     | '/languages/$slug'
@@ -529,6 +549,8 @@ export interface FileRouteTypes {
     | '/admin/system/support/'
   fileRoutesByTo: FileRoutesByTo
   to:
+    | '/databases'
+    | '/fwks-libs'
     | '/admin'
     | '/'
     | '/blog/$slug'
@@ -578,6 +600,8 @@ export interface FileRouteTypes {
     | '__root__'
     | '/admin'
     | '/_site'
+    | '/_site/databases'
+    | '/_site/fwks-libs'
     | '/admin/_auth'
     | '/admin/_dashboard'
     | '/_site/'
@@ -653,6 +677,20 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof SiteIndexRouteImport
+      parentRoute: typeof SiteRoute
+    }
+    '/_site/databases': {
+      id: '/_site/databases'
+      path: '/databases'
+      fullPath: '/databases'
+      preLoaderRoute: typeof SiteDatabasesRouteImport
+      parentRoute: typeof SiteRoute
+    }
+    '/_site/fwks-libs': {
+      id: '/_site/fwks-libs'
+      path: '/fwks-libs'
+      fullPath: '/fwks-libs'
+      preLoaderRoute: typeof SiteFwksLibsRouteImport
       parentRoute: typeof SiteRoute
     }
     '/admin/': {
@@ -1114,6 +1152,8 @@ const AdminRouteRouteWithChildren = AdminRouteRoute._addFileChildren(
 )
 
 interface SiteRouteChildren {
+  SiteDatabasesRoute: typeof SiteDatabasesRoute
+  SiteFwksLibsRoute: typeof SiteFwksLibsRoute
   SiteIndexRoute: typeof SiteIndexRoute
   SiteBlogSlugRoute: typeof SiteBlogSlugRoute
   SiteLanguagesSlugRoute: typeof SiteLanguagesSlugRoute
@@ -1121,6 +1161,8 @@ interface SiteRouteChildren {
 }
 
 const SiteRouteChildren: SiteRouteChildren = {
+  SiteDatabasesRoute: SiteDatabasesRoute,
+  SiteFwksLibsRoute: SiteFwksLibsRoute,
   SiteIndexRoute: SiteIndexRoute,
   SiteBlogSlugRoute: SiteBlogSlugRoute,
   SiteLanguagesSlugRoute: SiteLanguagesSlugRoute,

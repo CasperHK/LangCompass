@@ -271,6 +271,65 @@ function HomePage() {
         </div>
       </section>
 
+      <section className="border-y border-slate-100 bg-white px-6 py-16 sm:py-20">
+        <div className="mx-auto max-w-7xl">
+          <div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
+            <div>
+              <p className="text-sm font-semibold tracking-wide text-blue-700">更多技術選擇</p>
+              <h2 className="mt-3 text-2xl font-semibold tracking-tight text-slate-950 sm:text-3xl">
+                從需求找到合適的工具
+              </h2>
+              <p className="mt-3 max-w-2xl leading-7 text-slate-600">
+                除了程式語言，也可以依照資料需求或產品類型探索常見技術。
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-8 grid gap-4 md:grid-cols-2">
+            <Link
+              className="group flex items-start gap-4 rounded-2xl border border-slate-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-blue-200 hover:shadow-[0_16px_36px_-24px_rgba(15,23,42,0.3)] sm:p-6"
+              to="/databases"
+            >
+              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-700">
+                <Database className="h-5 w-5" aria-hidden="true" />
+              </span>
+              <span className="min-w-0 flex-1">
+                <span className="flex items-center justify-between gap-3">
+                  <span className="font-semibold text-slate-950">資料庫選擇指南</span>
+                  <ArrowRight
+                    className="h-4 w-4 shrink-0 text-slate-400 transition group-hover:translate-x-1 group-hover:text-blue-700"
+                    aria-hidden="true"
+                  />
+                </span>
+                <span className="mt-2 block text-sm leading-6 text-slate-600">
+                  依資料模型、工作負載與維運需求，比較常見資料庫。
+                </span>
+              </span>
+            </Link>
+            <Link
+              className="group flex items-start gap-4 rounded-2xl border border-slate-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-violet-200 hover:shadow-[0_16px_36px_-24px_rgba(15,23,42,0.3)] sm:p-6"
+              to="/fwks-libs"
+            >
+              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-violet-50 text-violet-700">
+                <Code2 className="h-5 w-5" aria-hidden="true" />
+              </span>
+              <span className="min-w-0 flex-1">
+                <span className="flex items-center justify-between gap-3">
+                  <span className="font-semibold text-slate-950">框架與函式庫</span>
+                  <ArrowRight
+                    className="h-4 w-4 shrink-0 text-slate-400 transition group-hover:translate-x-1 group-hover:text-violet-700"
+                    aria-hidden="true"
+                  />
+                </span>
+                <span className="mt-2 block text-sm leading-6 text-slate-600">
+                  依語言、應用類型和團隊需求，探索常見開發工具。
+                </span>
+              </span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       <section className="bg-slate-50 px-6 py-20 sm:py-24" id="language-index">
         <div className="mx-auto max-w-7xl">
           <div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-end">

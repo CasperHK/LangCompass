@@ -15,7 +15,7 @@ export function Navbar() {
           <span className="text-lg font-semibold tracking-tight text-slate-950">LangCompass</span>
         </Link>
 
-        <div className="hidden items-center gap-7 md:flex">
+        <div className="hidden items-center gap-5 lg:flex">
           <a
             className="text-sm font-medium text-slate-600 transition hover:text-blue-700"
             href="/#categories"
@@ -28,6 +28,18 @@ export function Navbar() {
           >
             語言圖鑑
           </a>
+          <Link
+            className="text-sm font-medium text-slate-600 transition hover:text-blue-700"
+            to="/databases"
+          >
+            資料庫指南
+          </Link>
+          <Link
+            className="text-sm font-medium text-slate-600 transition hover:text-blue-700"
+            to="/fwks-libs"
+          >
+            框架與函式庫
+          </Link>
           <Link
             className="text-sm font-medium text-slate-600 transition hover:text-blue-700"
             to="/blog"
@@ -44,7 +56,7 @@ export function Navbar() {
 
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
-          className="rounded-lg p-2 text-slate-600 transition hover:bg-slate-100 hover:text-slate-950 md:hidden"
+          className="rounded-lg p-2 text-slate-600 transition hover:bg-slate-100 hover:text-slate-950 lg:hidden"
           aria-controls="mobile-navigation"
           aria-expanded={mobileOpen}
           aria-label={mobileOpen ? "關閉導覽選單" : "開啟導覽選單"}
@@ -59,7 +71,7 @@ export function Navbar() {
       </div>
 
       {mobileOpen ? (
-        <div className="border-t border-slate-100 bg-white md:hidden" id="mobile-navigation">
+        <div className="border-t border-slate-100 bg-white lg:hidden" id="mobile-navigation">
           <div className="mx-auto flex max-w-7xl flex-col gap-1 px-6 py-4">
             <Link
               className="rounded-lg px-3 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-50"
@@ -76,6 +88,20 @@ export function Navbar() {
               hash="language-index"
             >
               語言圖鑑
+            </Link>
+            <Link
+              className="rounded-lg px-3 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-50"
+              onClick={() => setMobileOpen(false)}
+              to="/databases"
+            >
+              資料庫指南
+            </Link>
+            <Link
+              className="rounded-lg px-3 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-50"
+              onClick={() => setMobileOpen(false)}
+              to="/fwks-libs"
+            >
+              框架與函式庫
             </Link>
             <Link
               className="rounded-lg px-3 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-50"

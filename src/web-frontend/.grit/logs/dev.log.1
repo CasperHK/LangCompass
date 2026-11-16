@@ -3,19 +3,11 @@
 [web] > vite
 [web] 
 [api] go: github.com/air-verse/air@v1.65.3 requires go >= 1.25; switching to go1.26.11
-[api] go: downloading go1.26.11 (windows/amd64)
-[web] Port 5173 is in use, trying another one...
-[web] 
-[web]   VITE v6.4.6  ready in 4240 ms
-[web] 
-[web]   ➜  Local:   http://localhost:5174/
-[web]   ➜  Network: use --host to expose
 [api] 
 [api]   __    _   ___  
 [api]  / /\  | | | |_) 
 [api] /_/--\ |_| |_| \_ v1.65.3, built with Go go1.26.11
 [api] 
-[api] mkdir G:\Workspaces\LangCompass\src\web-frontend\api\tmp
 [api] watching .
 [api] watching cmd
 [api] watching cmd\backup
@@ -79,126 +71,39 @@
 [api] watching internal\tracing
 [api] watching internal\webhooks
 [api] watching internal\workflow
+[api] watching storage
+[api] watching storage\app
 [api] !exclude tmp
 [api] watching web
 [api] watching web\assets
 [api] watching web\logos
 [api] building...
-[api] failed to stop watching G:\Workspaces\LangCompass\src\web-frontend\api\web\logos, error: fsnotify: can't remove non-existent watch: G:\Workspaces\LangCompass\src\web-frontend\api\web\logos
-[api] watching web
-[api] failed to stop watching G:\Workspaces\LangCompass\src\web-frontend\api\web\logos, error: fsnotify: can't remove non-existent watch: G:\Workspaces\LangCompass\src\web-frontend\api\web\logos
-[api] watching web
-[api] watching web
-[api] watching web
-[api] watching web\logos
-[api] watching web\logos
-[api] watching web\logos
-[api] watching web\logos
-[api] watching web\logos
-[api] watching web\logos
-[api] watching web\assets
-[api] watching web\assets
-[api] watching web
-[api] watching web\assets
-[api] watching web\assets
-[api] watching web\logos
-[api] watching web
-[api] watching web\assets
-[api] watching web\assets
-[api] watching web\logos
+[web] Port 5173 is in use, trying another one...
+[web] Port 5174 is in use, trying another one...
+[web] 
+[web]   VITE v6.4.6  ready in 3258 ms
+[web] 
+[web]   ➜  Local:   http://localhost:5175/
+[web]   ➜  Network: use --host to expose
 [api] running...
-[api] 2026/11/16 20:02:30 MinIO at http://localhost:9000 is not answering, so files are being kept on the local disk at storage/app and uploads work. Start it with docker compose up -d minio, or set STORAGE_DRIVER=local to choose the disk deliberately.
-[api] 2026/11/16 20:02:30 REDIS_URL is empty: cache, background jobs and cron are disabled
-[api] 2026/11/16 20:02:30 Database pool: one connection, because SQLite writes one at a time
-[api] 2026/11/16 20:02:30 Database connected successfully
-[api] 2026/11/16 20:02:30 Running auto-migrations...
-[api] 2026/11/16 20:02:30 ================================================================
-[api] 2026/11/16 20:02:30 DATABASE MIGRATION: 41 model(s) registered
-[api] 2026/11/16 20:02:30 ================================================================
-[api] 2026/11/16 20:02:30   + created *models.User
-[api] 2026/11/16 20:02:30   + created *models.Session
-[api] 2026/11/16 20:02:30   + created *models.PasswordResetToken
-[api] 2026/11/16 20:02:30   + created *models.EmailVerificationToken
-[api] 2026/11/16 20:02:30   + created *models.RecoveryContactToken
-[api] 2026/11/16 20:02:30   + created *models.RecoveryContact
-[api] 2026/11/16 20:02:30   + created *models.Passkey
-[api] 2026/11/16 20:02:30   + created *models.WebAuthnSession
-[api] 2026/11/16 20:02:30   + created *models.APIKey
-[api] 2026/11/16 20:02:30   + created *models.Role
-[api] 2026/11/16 20:02:30   + created *models.UserRole
-[api] 2026/11/16 20:02:30   + created *models.Upload
-[api] 2026/11/16 20:02:30   + created *models.Blog
-[api] 2026/11/16 20:02:30   + created *models.TwoFactorConfig
-[api] 2026/11/16 20:02:30   + created *models.TrustedDevice
-[api] 2026/11/16 20:02:30   + created *models.TOTPPendingToken
-[api] 2026/11/16 20:02:30   + created *models.MagicLinkToken
-[api] 2026/11/16 20:02:30   + created *models.ActivityLog
-[api] 2026/11/16 20:02:30   + created *models.WebhookEvent
-[api] 2026/11/16 20:02:30   + created *models.FeatureFlag
-[api] 2026/11/16 20:02:30   + created *models.FlagExposure
-[api] 2026/11/16 20:02:30   + created *models.Notification
-[api] 2026/11/16 20:02:30   + created *models.UserActivity
-[api] 2026/11/16 20:02:30   + created *models.AccessReview
-[api] 2026/11/16 20:02:30   + created *models.AccessReviewItem
-[api] 2026/11/16 20:02:30   + created *models.DeletionJournal
-[api] 2026/11/16 20:02:30   + created *models.Ticket
-[api] 2026/11/16 20:02:30   + created *models.TicketReply
-[api] 2026/11/16 20:02:30   + created *models.FormShare
-[api] 2026/11/16 20:02:30   + created *models.FormSubmission
-[api] 2026/11/16 20:02:30   + created *models.DashboardLayout
-[api] 2026/11/16 20:02:30   + created *models.ImportJob
-[api] 2026/11/16 20:02:30   + created *models.Backup
-[api] 2026/11/16 20:02:30   + created *models.BackupSchedule
-[api] 2026/11/16 20:02:30   + created *models.SSOConnection
-[api] 2026/11/16 20:02:30   + created *models.UserIdentity
-[api] 2026/11/16 20:02:30   + created *models.SAMLKeypair
-[api] 2026/11/16 20:02:30   + created *models.Setting
-[api] 2026/11/16 20:02:30   + created *models.OutboxMessage
-[api] 2026/11/16 20:02:30   + created *models.SagaRun
-[api] 2026/11/16 20:02:30   + created *models.SagaStep
-[api] 2026/11/16 20:02:30 ----------------------------------------------------------------
-[api] 2026/11/16 20:02:30 Migration done: 41 table(s) created, 0 altered (+0 column(s)), 0 unchanged.
-[api] 2026/11/16 20:02:30 ================================================================
-[api] 2026/11/16 20:02:30 Empty database detected: running first-boot seed...
-[api] 2026/11/16 20:02:30 Created admin user: admin@example.com / admin123 (dev default: change before production)
-[api] 2026/11/16 20:02:30 Created user: jane@example.com / admin123
-[api] 2026/11/16 20:02:30 Created user: robert@example.com / admin123
-[api] 2026/11/16 20:02:31 Created user: emily@example.com / admin123
-[api] 2026/11/16 20:02:31 Created user: michael@example.com / admin123
-[api] 
-[api] 2026/11/16 20:02:31 G:/Workspaces/LangCompass/src/web-frontend/api/internal/database/api_keys_seeder.go:80 record not found
-[api] [1.000ms] [rows:0] SELECT * FROM `api_keys` WHERE user_id = "01a1e43c-c674-7e98-abdf-b3050ff8e2e9" AND name = "Client apps (publishable)" ORDER BY `api_keys`.`id` LIMIT 1
-[api] 
-[api] 2026/11/16 20:02:31 G:/Workspaces/LangCompass/src/web-frontend/api/internal/database/api_keys_seeder.go:80 record not found
-[api] [0.000ms] [rows:0] SELECT * FROM `api_keys` WHERE user_id = "01a1e43c-c674-7e98-abdf-b3050ff8e2e9" AND name = "Server to server (secret)" ORDER BY `api_keys`.`id` LIMIT 1
-[api] 2026/11/16 20:02:31 ================================================================
-[api] 2026/11/16 20:02:31 API keys
-[api] 2026/11/16 20:02:31   Publishable  grit_pk_31641055_dd828258ddea6f861aac7550c0e57c57904c8b49736b8fd6a2f2676924fa32ee
-[api] 2026/11/16 20:02:31                Safe in a browser or a mobile app. Reaches
-[api] 2026/11/16 20:02:31                endpoints marked public, and nothing else.
-[api] 2026/11/16 20:02:31   Secret       grit_sk_5d7d1d83_ab9708eb91c55bd2a1facd6068fbf49d8d2ae762374d381224923c6ae0be49cc
-[api] 2026/11/16 20:02:31                Server side only. Shown once, right now.
-[api] 2026/11/16 20:02:31   Manage both in the admin at Settings, API Keys.
-[api] 2026/11/16 20:02:31 ================================================================
-[api] 2026/11/16 20:02:31 MinIO at http://localhost:9000 is not answering, so files are being kept on the local disk at storage/app and uploads work. Start it with docker compose up -d minio, or set STORAGE_DRIVER=local to choose the disk deliberately.
-[api] 2026/11/16 20:02:31 REDIS_URL is empty: cache, background jobs and cron are disabled
-[api] 2026/11/16 20:02:31 MinIO at http://localhost:9000 is not answering, so files are being kept on the local disk at storage/app and uploads work. Start it with docker compose up -d minio, or set STORAGE_DRIVER=local to choose the disk deliberately.
-[api] 2026/11/16 20:02:31 REDIS_URL is empty: cache, background jobs and cron are disabled
-[api] 2026/11/16 20:02:31   Wrote ..\.env.local
-[api] 2026/11/16 20:02:31 Created blog: "Getting Started with Grit" (published)
-[web] 下午8:02:31 [vite] .env.local changed, restarting server...
-[web] 下午8:02:31 [vite] .env.local changed, restarting server...
-[api] 2026/11/16 20:02:31 Created blog: "Building Modern APIs with Go and Gin" (published)
-[api] 2026/11/16 20:02:31 Created blog: "The Power of Monorepo Architecture" (published)
-[api] 2026/11/16 20:02:31 Created blog: "Advanced RBAC Patterns" (draft)
-[api] 2026/11/16 20:02:31 First-boot seed completed
-[api] 2026/11/16 20:02:31 File storage: local disk at G:\Workspaces\LangCompass\src\web-frontend\api\storage\app, served from http://localhost:8080/files
-[api] 2026/11/16 20:02:31 Email: sending with failover(smtp,log)
-[api] 2026/11/16 20:02:31 AI service configured via AI Gateway (anthropic/claude-sonnet-4-6)
+[api] 2026/11/16 20:18:39 MinIO at http://localhost:9000 is not answering, so files are being kept on the local disk at storage/app and uploads work. Start it with docker compose up -d minio, or set STORAGE_DRIVER=local to choose the disk deliberately.
+[api] 2026/11/16 20:18:39 REDIS_URL is empty: cache, background jobs and cron are disabled
+[api] 2026/11/16 20:18:39 Database pool: one connection, because SQLite writes one at a time
+[api] 2026/11/16 20:18:39 Database connected successfully
+[api] 2026/11/16 20:18:39 Running auto-migrations...
+[api] 2026/11/16 20:18:39 ================================================================
+[api] 2026/11/16 20:18:39 DATABASE MIGRATION: 41 model(s) registered
+[api] 2026/11/16 20:18:39 ================================================================
+[api] 2026/11/16 20:18:39 ----------------------------------------------------------------
+[api] 2026/11/16 20:18:39 Migration done: 0 table(s) created, 0 altered (+0 column(s)), 41 unchanged.
 [api] [GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
 [api]  - using env:	export GIN_MODE=release
 [api]  - using code:	gin.SetMode(gin.ReleaseMode)
 [api] 
+[api] 2026/11/16 20:18:39 ================================================================
+[api] 2026/11/16 20:18:39 File storage: local disk at G:\Workspaces\LangCompass\src\web-frontend\api\storage\app, served from http://localhost:8080/files
+[api] 2026/11/16 20:18:39 Email: sending with failover(smtp,log)
+[api] 2026/11/16 20:18:39 AI service configured via AI Gateway (anthropic/claude-sonnet-4-6)
 [api] [GIN-debug] POST   /sentinel/csp-report      --> github.com/MUKE-coder/sentinel/v2/api.(*Server).registerCSPReport.(*Server).handleCSPReport.func1 (20 handlers)
 [api] [GIN-debug] POST   /sentinel/api/auth/login  --> github.com/MUKE-coder/sentinel/v2/api.(*Server).handleLogin-fm (20 handlers)
 [api] [GIN-debug] POST   /sentinel/api/auth/logout --> github.com/MUKE-coder/sentinel/v2/api.(*Server).handleLogout-fm (20 handlers)
@@ -221,6 +126,8 @@
 [api] [GIN-debug] GET    /sentinel/api/analytics/geographic --> github.com/MUKE-coder/sentinel/v2/api.(*Server).handleGeoStats-fm (21 handlers)
 [api] [GIN-debug] GET    /sentinel/api/analytics/top-targets --> github.com/MUKE-coder/sentinel/v2/api.(*Server).handleTopTargets-fm (21 handlers)
 [api] [GIN-debug] GET    /sentinel/api/users       --> github.com/MUKE-coder/sentinel/v2/api.(*Server).handleListUsers-fm (21 handlers)
+[api] 2026/11/16 20:18:39 [sentinel] Mounted at /sentinel (WAF: true, RateLimit: false, Storage: sqlite)
+[api] 2026/11/16 20:18:39 Sentinel mounted at /sentinel
 [api] [GIN-debug] GET    /sentinel/api/users/:user_id/activity --> github.com/MUKE-coder/sentinel/v2/api.(*Server).handleUserActivity-fm (21 handlers)
 [api] [GIN-debug] GET    /sentinel/api/users/:user_id/threats --> github.com/MUKE-coder/sentinel/v2/api.(*Server).handleUserThreats-fm (21 handlers)
 [api] [GIN-debug] GET    /sentinel/api/actors/:ip/requests --> github.com/MUKE-coder/sentinel/v2/api.(*Server).handleActorRequests-fm (21 handlers)
@@ -230,9 +137,6 @@
 [api] [GIN-debug] GET    /sentinel/api/audit-logs/verify --> github.com/MUKE-coder/sentinel/v2/api.(*Server).handleVerifyAuditLogs-fm (21 handlers)
 [api] [GIN-debug] POST   /sentinel/api/auth/unblock-user/:username --> github.com/MUKE-coder/sentinel/v2/api.(*Server).handleUnblockUser-fm (21 handlers)
 [api] [GIN-debug] GET    /sentinel/api/auth-shield/status --> github.com/MUKE-coder/sentinel/v2/api.(*Server).handleAuthShieldStatus-fm (21 handlers)
-[api] watching storage
-[api] 2026/11/16 20:02:31 [sentinel] Mounted at /sentinel (WAF: true, RateLimit: false, Storage: sqlite)
-[api] 2026/11/16 20:02:31 Sentinel mounted at /sentinel
 [api] [GIN-debug] GET    /sentinel/api/csp-violations/stats --> github.com/MUKE-coder/sentinel/v2/api.(*Server).handleCSPStats-fm (21 handlers)
 [api] [GIN-debug] GET    /sentinel/api/reports/gdpr --> github.com/MUKE-coder/sentinel/v2/api.(*Server).handleGDPRReport-fm (21 handlers)
 [api] [GIN-debug] GET    /sentinel/api/reports/pci-dss --> github.com/MUKE-coder/sentinel/v2/api.(*Server).handlePCIDSSReport-fm (21 handlers)
@@ -253,26 +157,41 @@
 [api] [GIN-debug] POST   /sentinel/api/ai/query    --> github.com/MUKE-coder/sentinel/v2/api.(*Server).handleAIQuery-fm (21 handlers)
 [api] [GIN-debug] GET    /sentinel/api/ai/waf-recommendations --> github.com/MUKE-coder/sentinel/v2/api.(*Server).handleAIWAFRecommendations-fm (21 handlers)
 [api] [GIN-debug] GET    /sentinel/api/settings/live --> github.com/MUKE-coder/sentinel/v2/api.(*Server).handleGetLiveSettings-fm (21 handlers)
+[api] 2026/11/16 20:18:39 GORM Studio mounted at /studio
+[api] 2026/11/16 20:18:39 API docs available at /docs
+[api] 2026/11/16 20:18:39 [pulse] starting background: lifecycle
 [api] [GIN-debug] DELETE /sentinel/api/settings/live --> github.com/MUKE-coder/sentinel/v2/api.(*Server).handleResetLiveSettings-fm (21 handlers)
 [api] [GIN-debug] GET    /sentinel/api/rate-limits --> github.com/MUKE-coder/sentinel/v2/api.(*Server).handleGetRateLimits-fm (21 handlers)
+[api] 2026/11/16 20:18:39 [pulse] starting background: log-tail
 [api] [GIN-debug] PUT    /sentinel/api/rate-limits --> github.com/MUKE-coder/sentinel/v2/api.(*Server).handleUpdateRateLimits-fm (21 handlers)
+[api] 2026/11/16 20:18:39 [pulse] starting background: websocket-hub
 [api] [GIN-debug] GET    /sentinel/api/rate-limits/current --> github.com/MUKE-coder/sentinel/v2/api.(*Server).handleGetRateLimitStates-fm (21 handlers)
+[api] 2026/11/16 20:18:39 [pulse] registered health check: database (database)
 [api] [GIN-debug] POST   /sentinel/api/rate-limits/reset/:key --> github.com/MUKE-coder/sentinel/v2/api.(*Server).handleResetRateLimit-fm (21 handlers)
+[api] 2026/11/16 20:18:39 [pulse] starting background: rollup-flusher
 [api] [GIN-debug] GET    /sentinel/ws/threats      --> github.com/MUKE-coder/sentinel/v2/api.(*Server).handleWSThreats-fm (20 handlers)
+[api] 2026/11/16 20:18:39 [pulse] starting background: aggregator
 [api] [GIN-debug] GET    /sentinel/ws/metrics      --> github.com/MUKE-coder/sentinel/v2/api.(*Server).handleWSMetrics-fm (20 handlers)
+[api] 2026/11/16 20:18:39 [pulse] starting background: alert-notifier
 [api] [GIN-debug] GET    /sentinel/ws/alerts       --> github.com/MUKE-coder/sentinel/v2/api.(*Server).handleWSAlerts-fm (20 handlers)
+[api] 2026/11/16 20:18:39 [pulse] starting background: health-runner
 [api] [GIN-debug] GET    /sentinel/ui/*filepath    --> github.com/MUKE-coder/sentinel/v2.MountE.func3 (20 handlers)
-[api] watching storage
-[api] 2026/11/16 20:02:31 GORM Studio mounted at /studio
-[api] 2026/11/16 20:02:31 API docs available at /docs
+[api] 2026/11/16 20:18:39 [pulse] starting background: alert-notifier
 [api] [GIN-debug] GET    /studio                   --> github.com/MUKE-coder/gorm-studio/studio.Mount.func1 (21 handlers)
+[api] 2026/11/16 20:18:39 [pulse] starting background: alert-engine
 [api] [GIN-debug] GET    /studio/api/schema        --> github.com/MUKE-coder/gorm-studio/studio.(*Handlers).GetSchema-fm (22 handlers)
+[api] 2026/11/16 20:18:39 [pulse] starting background: pool-monitor
 [api] [GIN-debug] POST   /studio/api/schema/refresh --> github.com/MUKE-coder/gorm-studio/studio.(*Handlers).RefreshSchema-fm (22 handlers)
+[api] 2026/11/16 20:18:39 [pulse] starting background: retention-sweeper
 [api] [GIN-debug] GET    /studio/api/tables/:table/rows --> github.com/MUKE-coder/gorm-studio/studio.(*Handlers).GetRows-fm (22 handlers)
+[api] 2026/11/16 20:18:39 [pulse] starting background: n1-sweeper
 [api] [GIN-debug] GET    /studio/api/tables/:table/rows/:id --> github.com/MUKE-coder/gorm-studio/studio.(*Handlers).GetRow-fm (22 handlers)
+[api] 2026/11/16 20:18:39 [pulse] starting background: runtime-sampler
 [api] [GIN-debug] POST   /studio/api/tables/:table/rows --> github.com/MUKE-coder/gorm-studio/studio.(*Handlers).CreateRow-fm (22 handlers)
 [api] [GIN-debug] PUT    /studio/api/tables/:table/rows/:id --> github.com/MUKE-coder/gorm-studio/studio.(*Handlers).UpdateRow-fm (22 handlers)
+[api] 2026/11/16 20:18:39 [pulse] starting background: use-sampler
 [api] [GIN-debug] DELETE /studio/api/tables/:table/rows/:id --> github.com/MUKE-coder/gorm-studio/studio.(*Handlers).DeleteRow-fm (22 handlers)
+[api] 2026/11/16 20:18:39 [pulse] starting background: regression-watcher
 [api] [GIN-debug] POST   /studio/api/tables/:table/rows/bulk-delete --> github.com/MUKE-coder/gorm-studio/studio.(*Handlers).BulkDelete-fm (22 handlers)
 [api] [GIN-debug] GET    /studio/api/tables/:table/rows/:id/relations/:relation --> github.com/MUKE-coder/gorm-studio/studio.(*Handlers).GetRelatedRows-fm (22 handlers)
 [api] [GIN-debug] GET    /studio/api/tables/:table/export --> github.com/MUKE-coder/gorm-studio/studio.(*Handlers).ExportTable-fm (22 handlers)
@@ -293,18 +212,6 @@
 [api] [GIN-debug] GET    /docs/export/insomnia     --> github.com/MUKE-coder/gin-docs/gindocs.(*GinDocs).handleExportInsomnia-fm (20 handlers)
 [api] [GIN-debug] GET    /llms.txt                 --> web-frontend/internal/routes.registerLLMSFiles.func2 (20 handlers)
 [api] [GIN-debug] GET    /llms-full.txt            --> web-frontend/internal/routes.registerLLMSFiles.func3 (20 handlers)
-[api] watching storage\app
-[api] 2026/11/16 20:02:31 [pulse] registered health check: database (database)
-[api] 2026/11/16 20:02:31 [pulse] starting background: n1-sweeper
-[api] 2026/11/16 20:02:31 [pulse] starting background: lifecycle
-[api] 2026/11/16 20:02:31 [pulse] starting background: websocket-hub
-[api] 2026/11/16 20:02:31 [pulse] starting background: rollup-flusher
-[api] 2026/11/16 20:02:31 [pulse] starting background: log-tail
-[api] 2026/11/16 20:02:31 [pulse] starting background: retention-sweeper
-[api] 2026/11/16 20:02:31 [pulse] starting background: pool-monitor
-[api] 2026/11/16 20:02:31 [pulse] starting background: alert-notifier
-[api] 2026/11/16 20:02:31 [pulse] starting background: runtime-sampler
-[api] watching storage\app
 [api] [GIN-debug] GET    /pulse/health             --> github.com/MUKE-coder/pulse/pulse.registerHealthRoutes.func1 (22 handlers)
 [api] [GIN-debug] GET    /pulse/health/live        --> github.com/MUKE-coder/pulse/pulse.registerHealthRoutes.func2 (22 handlers)
 [api] [GIN-debug] GET    /pulse/health/ready       --> github.com/MUKE-coder/pulse/pulse.registerHealthRoutes.func3 (22 handlers)
@@ -336,18 +243,17 @@
 [api] [GIN-debug] GET    /pulse/api/runtime/current --> github.com/MUKE-coder/pulse/pulse.registerAPIRoutes.runtimeCurrentHandler.func27 (23 handlers)
 [api] [GIN-debug] GET    /pulse/api/runtime/history --> github.com/MUKE-coder/pulse/pulse.registerAPIRoutes.runtimeHistoryHandler.func28 (23 handlers)
 [api] [GIN-debug] GET    /pulse/api/runtime/info   --> github.com/MUKE-coder/pulse/pulse.registerAPIRoutes.runtimeInfoHandler.func29 (23 handlers)
-[api] 2026/11/16 20:02:31 [pulse] starting background: aggregator
-[api] 2026/11/16 20:02:31 [pulse] starting background: health-runner
-[api] 2026/11/16 20:02:31 [pulse] starting background: use-sampler
-[api] 2026/11/16 20:02:31 [pulse] starting background: alert-engine
-[api] 2026/11/16 20:02:31 [pulse] starting background: alert-notifier
-[api] 2026/11/16 20:02:31 [pulse] starting background: regression-watcher
 [api] [GIN-debug] GET    /pulse/api/health/checks  --> github.com/MUKE-coder/pulse/pulse.registerAPIRoutes.healthChecksHandler.func30 (23 handlers)
 [api] [GIN-debug] GET    /pulse/api/health/checks/:name/history --> github.com/MUKE-coder/pulse/pulse.registerAPIRoutes.healthCheckHistoryHandler.func31 (23 handlers)
+[api] 2026/11/16 20:18:39 [pulse] mounted at /pulse — dashboard at /pulse/ui/ (storage: Memory)
 [api] [GIN-debug] POST   /pulse/api/health/checks/:name/run --> github.com/MUKE-coder/pulse/pulse.registerAPIRoutes.healthCheckRunHandler.func32 (23 handlers)
+[api] 2026/11/16 20:18:39 [pulse] dev mode enabled — verbose logging active
 [api] [GIN-debug] GET    /pulse/api/alerts         --> github.com/MUKE-coder/pulse/pulse.registerAPIRoutes.alertsListHandler.func33 (23 handlers)
+[api] 2026/11/16 20:18:39 Pulse observability mounted at /pulse
 [api] [GIN-debug] GET    /pulse/api/slos           --> github.com/MUKE-coder/pulse/pulse.registerAPIRoutes.slosListHandler.func34 (23 handlers)
+[api] 2026/11/16 20:18:39 Passkeys enabled for localhost (origins: http://localhost:3000, http://localhost:3001)
 [api] [GIN-debug] GET    /pulse/api/use            --> github.com/MUKE-coder/pulse/pulse.registerAPIRoutes.useHandler.func35 (23 handlers)
+[api] 2026/11/16 20:18:39 outbox: relay CASPER-DESKTOP started (batch 50, every 2s)
 [api] [GIN-debug] GET    /pulse/api/test-runs      --> github.com/MUKE-coder/pulse/pulse.registerAPIRoutes.testRunsListHandler.func36 (23 handlers)
 [api] [GIN-debug] POST   /pulse/api/test-runs      --> github.com/MUKE-coder/pulse/pulse.registerAPIRoutes.testRunsCreateHandler.func37 (23 handlers)
 [api] [GIN-debug] GET    /pulse/api/test-runs/:id/compare --> github.com/MUKE-coder/pulse/pulse.registerAPIRoutes.testRunCompareHandler.func38 (23 handlers)
@@ -372,14 +278,6 @@
 [api] [GIN-debug] GET    /pulse/                   --> github.com/MUKE-coder/pulse/pulse.registerDashboardRoutes.func3 (22 handlers)
 [api] [GIN-debug] GET    /pulse/ui                 --> github.com/MUKE-coder/pulse/pulse.registerDashboardRoutes.func4 (22 handlers)
 [api] [GIN-debug] GET    /pulse/ui/*filepath       --> github.com/MUKE-coder/pulse/pulse.registerDashboardRoutes.func5 (22 handlers)
-[api] 2026/11/16 20:02:31 [pulse] mounted at /pulse — dashboard at /pulse/ui/ (storage: Memory)
-[api] 2026/11/16 20:02:31 [pulse] dev mode enabled — verbose logging active
-[api] 2026/11/16 20:02:31 Pulse observability mounted at /pulse
-[api] 2026/11/16 20:02:31 Passkeys enabled for localhost (origins: http://localhost:3000, http://localhost:3001)
-[api] 2026/11/16 20:02:31 outbox: relay CASPER-DESKTOP started (batch 50, every 2s)
-[api] 
-[api] 2026/11/16 20:02:31 G:/Workspaces/LangCompass/src/web-frontend/api/internal/services/saml.go:185 record not found
-[api] [0.000ms] [rows:0] SELECT * FROM `saml_keypairs` ORDER BY created_at desc,`saml_keypairs`.`id` LIMIT 1
 [api] [GIN-debug] GET    /files/*key               --> web-frontend/internal/routes.Setup.WrapH.func10 (22 handlers)
 [api] [GIN-debug] HEAD   /files/*key               --> web-frontend/internal/routes.Setup.WrapH.func11 (22 handlers)
 [api] [GIN-debug] GET    /api/health               --> web-frontend/internal/routes.Setup.func1 (22 handlers)
@@ -512,6 +410,8 @@
 [api] [GIN-debug] GET    /api/v1/admin/sagas/:id   --> web-frontend/internal/handlers.(*SagaHandler).GetByID-fm (25 handlers)
 [api] [GIN-debug] POST   /api/v1/admin/sagas/:id/retry --> web-frontend/internal/handlers.(*SagaHandler).Retry-fm (25 handlers)
 [api] [GIN-debug] GET    /api/v1/admin/routes      --> web-frontend/internal/handlers.(*RouteExplorerHandler).List-fm (25 handlers)
+[api] 2026/11/16 20:18:40 Server starting on :8080
+[api] 2026/11/16 20:18:40 Server error: listen tcp :8080: bind: Only one usage of each socket address (protocol/network address/port) is normally permitted.
 [api] [GIN-debug] GET    /api/v1/admin/cron/tasks  --> web-frontend/internal/handlers.(*CronHandler).ListTasks-fm (25 handlers)
 [api] [GIN-debug] GET    /api/v1/admin/mail/templates --> web-frontend/internal/handlers.(*MailPreviewHandler).Templates-fm (25 handlers)
 [api] [GIN-debug] GET    /api/v1/admin/mail/preview/:template --> web-frontend/internal/handlers.(*MailPreviewHandler).Preview-fm (25 handlers)
@@ -561,12 +461,9 @@
 [api] [GIN-debug] DELETE /api/v1/settings/:key     --> web-frontend/internal/handlers.(*SettingsHandler).Reset-fm (24 handlers)
 [api] [GIN-debug] GET    /api/v1/public/forms/:token --> web-frontend/internal/handlers.(*FormShareHandler).PublicGet-fm (22 handlers)
 [api] [GIN-debug] POST   /api/v1/public/forms/:token/submit --> web-frontend/internal/handlers.(*FormShareHandler).PublicSubmit-fm (22 handlers)
-[api] 2026/11/16 20:02:31 Server starting on :8080
-[web] 下午8:02:32 [vite] server restarted.
-[api] 2026/11/16 20:06:45 CORS: refused http://localhost:5173. The browser drops every request from that origin without reporting an error, so the page will look like it is doing nothing. Add it to CORS_ORIGINS in .env (comma separated) and restart.
-[api] 2026/11/16 20:06:45 [200] GET /api/v1/blogs?page=1&page_size=20 | ::1 | 993.6µs | id=1794830805496466100-5926354750621846159
-[api] 2026/11/16 20:06:46 [200] GET /api/v1/blogs?page=1&page_size=20 | ::1 | 1.2839ms | id=1794830806527548800-3749287375065057152
-[api] 2026/11/16 20:07:53 [401] GET /api/v1/auth/me | ::1 | 0s | id=1794830873218434500-2373585316678315672
-[api] 2026/11/16 20:07:53 [401] GET /api/v1/auth/me | ::1 | 509.5µs | id=1794830873332037000-333356461498849060
-[api] 2026/11/16 20:08:01 [200] POST /api/v1/auth/passkeys/login/begin | ::1 | 4.0301ms | id=1794830881878377300-1963352835950859885
-[api] 2026/11/16 20:11:11 [pulse] alert fired: high_error_rate — high_error_rate: error_rate > 10.0% (current: 40.0%)
+[api] Process Exit with Code: 1
+[web] File G:\Workspaces\LangCompass\src\web-frontend\src\routeTree.gen.ts was modified by another process during processing.
+[web] 下午8:23:39 [vite] (client) page reload src/routeTree.gen.ts
+[web] 下午8:23:54 [vite] (client) hmr update /src/routes/_site/index.tsx, /src/globals.css, /src/routes/_site/languages/$slug.tsx
+[web] 下午8:23:54 [vite] (client) hmr update /src/routes/_site/languages/$slug.tsx, /src/globals.css
+[web] 下午8:23:54 [vite] (client) hmr update /src/routes/_site/index.tsx, /src/globals.css
