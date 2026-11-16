@@ -4,8 +4,9 @@
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Frontend](https://img.shields.io/badge/Stack-Astro%20%2F%20Vue%203-orange.svg)]()
 
-> 一個專為開發者與技術愛好者打造的現代化程式語言與技術生態導航平台。透過結構化分類、多維度對比與場景化圖鑑，幫助開發者迅速探索、評估並掌握各主流與前沿程式語言及其生態系。
+一個專為開發者與技術愛好者打造的現代化程式語言與技術生態導航平台。透過結構化分類、多維度對比與場景化圖鑑，幫助開發者迅速探索、評估並掌握各主流與前沿程式語言及其生態系。
 
+![](Gemini_Generated_Image_lg8g4klg8g4klg8g.jpg)
 ---
 
 ## 🌟 核心特色 (Core Features)
@@ -38,7 +39,7 @@
 
 ## 🛠️ 技術選型 (Tech Stack)
 
-- **前端框架**：Astro / Vue 3（追求極致效能與靜態生成 SEO 友善）
+- **前端框架**：Grit Framework
 - **樣式與排版**：Tailwind CSS（簡潔、現代化的響應式介面設計）
 - **內容管理**：Markdown / MDX（便於技術文件的長期維護與協作）
 - **部署平台**：Cloudflare Pages / Vercel（全球 CDN 加速，確保中港台與海外流暢訪問）
