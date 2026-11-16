@@ -17,6 +17,7 @@ import { Route as AdminAuthRouteImport } from './routes/admin/_auth'
 import { Route as AdminDashboardRouteImport } from './routes/admin/_dashboard'
 import { Route as SiteBlogIndexRouteImport } from './routes/_site/blog/index'
 import { Route as SiteBlogSlugRouteImport } from './routes/_site/blog/$slug'
+import { Route as SiteLanguagesSlugRouteImport } from './routes/_site/languages/$slug'
 import { Route as AdminAuthCallbackRouteImport } from './routes/admin/_auth/callback'
 import { Route as AdminAuthForgotPasswordRouteImport } from './routes/admin/_auth/forgot-password'
 import { Route as AdminAuthLoginRouteImport } from './routes/admin/_auth/login'
@@ -93,6 +94,11 @@ const SiteBlogIndexRoute = SiteBlogIndexRouteImport.update({
 const SiteBlogSlugRoute = SiteBlogSlugRouteImport.update({
   id: '/blog/$slug',
   path: '/blog/$slug',
+  getParentRoute: () => SiteRoute,
+} as any)
+const SiteLanguagesSlugRoute = SiteLanguagesSlugRouteImport.update({
+  id: '/languages/$slug',
+  path: '/languages/$slug',
   getParentRoute: () => SiteRoute,
 } as any)
 const AdminAuthCallbackRoute = AdminAuthCallbackRouteImport.update({
@@ -330,6 +336,7 @@ export interface FileRoutesByFullPath {
   '/': typeof SiteIndexRoute
   '/admin/': typeof AdminIndexRoute
   '/blog/$slug': typeof SiteBlogSlugRoute
+  '/languages/$slug': typeof SiteLanguagesSlugRoute
   '/admin/callback': typeof AdminAuthCallbackRoute
   '/admin/forgot-password': typeof AdminAuthForgotPasswordRoute
   '/admin/login': typeof AdminAuthLoginRoute
@@ -376,6 +383,7 @@ export interface FileRoutesByTo {
   '/admin': typeof AdminIndexRoute
   '/': typeof SiteIndexRoute
   '/blog/$slug': typeof SiteBlogSlugRoute
+  '/languages/$slug': typeof SiteLanguagesSlugRoute
   '/admin/callback': typeof AdminAuthCallbackRoute
   '/admin/forgot-password': typeof AdminAuthForgotPasswordRoute
   '/admin/login': typeof AdminAuthLoginRoute
@@ -427,6 +435,7 @@ export interface FileRoutesById {
   '/_site/': typeof SiteIndexRoute
   '/admin/': typeof AdminIndexRoute
   '/_site/blog/$slug': typeof SiteBlogSlugRoute
+  '/_site/languages/$slug': typeof SiteLanguagesSlugRoute
   '/admin/_auth/callback': typeof AdminAuthCallbackRoute
   '/admin/_auth/forgot-password': typeof AdminAuthForgotPasswordRoute
   '/admin/_auth/login': typeof AdminAuthLoginRoute
@@ -476,6 +485,7 @@ export interface FileRouteTypes {
     | '/'
     | '/admin/'
     | '/blog/$slug'
+    | '/languages/$slug'
     | '/admin/callback'
     | '/admin/forgot-password'
     | '/admin/login'
@@ -522,6 +532,7 @@ export interface FileRouteTypes {
     | '/admin'
     | '/'
     | '/blog/$slug'
+    | '/languages/$slug'
     | '/admin/callback'
     | '/admin/forgot-password'
     | '/admin/login'
@@ -572,6 +583,7 @@ export interface FileRouteTypes {
     | '/_site/'
     | '/admin/'
     | '/_site/blog/$slug'
+    | '/_site/languages/$slug'
     | '/admin/_auth/callback'
     | '/admin/_auth/forgot-password'
     | '/admin/_auth/login'
@@ -676,6 +688,13 @@ declare module '@tanstack/react-router' {
       path: '/blog/$slug'
       fullPath: '/blog/$slug'
       preLoaderRoute: typeof SiteBlogSlugRouteImport
+      parentRoute: typeof SiteRoute
+    }
+    '/_site/languages/$slug': {
+      id: '/_site/languages/$slug'
+      path: '/languages/$slug'
+      fullPath: '/languages/$slug'
+      preLoaderRoute: typeof SiteLanguagesSlugRouteImport
       parentRoute: typeof SiteRoute
     }
     '/admin/_auth/callback': {
@@ -1097,12 +1116,14 @@ const AdminRouteRouteWithChildren = AdminRouteRoute._addFileChildren(
 interface SiteRouteChildren {
   SiteIndexRoute: typeof SiteIndexRoute
   SiteBlogSlugRoute: typeof SiteBlogSlugRoute
+  SiteLanguagesSlugRoute: typeof SiteLanguagesSlugRoute
   SiteBlogIndexRoute: typeof SiteBlogIndexRoute
 }
 
 const SiteRouteChildren: SiteRouteChildren = {
   SiteIndexRoute: SiteIndexRoute,
   SiteBlogSlugRoute: SiteBlogSlugRoute,
+  SiteLanguagesSlugRoute: SiteLanguagesSlugRoute,
   SiteBlogIndexRoute: SiteBlogIndexRoute,
 }
 

@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   ArrowDown,
   ArrowRight,
@@ -15,12 +15,11 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { useState } from "react";
+import { languages, type LanguageCategory } from "@/lib/languages";
 
 export const Route = createFileRoute("/_site/")({
   component: HomePage,
 });
-
-type LanguageCategory = "系統與效能" | "Web 與全端" | "資料科學與 AI" | "雲端與分散式" | "晶片設計";
 
 type CategoryFilter = "全部" | LanguageCategory;
 
@@ -65,106 +64,6 @@ const categories: {
     icon: Database,
     color: "bg-emerald-50 text-emerald-700 ring-emerald-100",
     examples: "Veryl · Spade",
-  },
-];
-
-const languages: {
-  name: string;
-  mark: string;
-  category: LanguageCategory;
-  description: string;
-  color: string;
-}[] = [
-  {
-    name: "Rust",
-    mark: "Rs",
-    category: "系統與效能",
-    description: "以記憶體安全與效能著稱，適合系統程式和可靠的後端服務。",
-    color: "bg-orange-50 text-orange-700",
-  },
-  {
-    name: "Go",
-    mark: "Go",
-    category: "雲端與分散式",
-    description: "簡潔、易部署的編譯語言，常見於雲端服務與開發者工具。",
-    color: "bg-cyan-50 text-cyan-700",
-  },
-  {
-    name: "C++",
-    mark: "C++",
-    category: "系統與效能",
-    description: "兼具低階控制與抽象能力，廣泛應用於遊戲、系統和高效能運算。",
-    color: "bg-indigo-50 text-indigo-700",
-  },
-  {
-    name: "Zig",
-    mark: "Z",
-    category: "系統與效能",
-    description: "重視可預測性與明確控制的新興系統語言。",
-    color: "bg-amber-50 text-amber-700",
-  },
-  {
-    name: "TypeScript",
-    mark: "TS",
-    category: "Web 與全端",
-    description: "為 JavaScript 加上型別，適合規模化的前端與全端應用。",
-    color: "bg-blue-50 text-blue-700",
-  },
-  {
-    name: "JavaScript",
-    mark: "JS",
-    category: "Web 與全端",
-    description: "驅動網頁互動的核心語言，也能用於伺服器與跨平台開發。",
-    color: "bg-yellow-50 text-yellow-700",
-  },
-  {
-    name: "Dart",
-    mark: "D",
-    category: "Web 與全端",
-    description: "搭配 Flutter 建構行動、網頁與桌面應用程式。",
-    color: "bg-sky-50 text-sky-700",
-  },
-  {
-    name: "Python",
-    mark: "Py",
-    category: "資料科學與 AI",
-    description: "語法易讀、套件豐富，常用於自動化、資料科學與 AI。",
-    color: "bg-emerald-50 text-emerald-700",
-  },
-  {
-    name: "Julia",
-    mark: "Jl",
-    category: "資料科學與 AI",
-    description: "為科學計算而生，兼顧高階語法與數值運算效能。",
-    color: "bg-violet-50 text-violet-700",
-  },
-  {
-    name: "R",
-    mark: "R",
-    category: "資料科學與 AI",
-    description: "專注統計分析與資料視覺化，深受研究與分析工作者使用。",
-    color: "bg-blue-50 text-blue-700",
-  },
-  {
-    name: "Bash",
-    mark: "$_",
-    category: "雲端與分散式",
-    description: "串接命令列工具、自動化工作流程與伺服器維運。",
-    color: "bg-slate-100 text-slate-700",
-  },
-  {
-    name: "Veryl",
-    mark: "V",
-    category: "晶片設計",
-    description: "面向 FPGA 與硬體開發的現代硬體描述語言。",
-    color: "bg-teal-50 text-teal-700",
-  },
-  {
-    name: "Spade",
-    mark: "Sp",
-    category: "晶片設計",
-    description: "提供型別安全與現代語法的硬體描述語言。",
-    color: "bg-rose-50 text-rose-700",
   },
 ];
 
@@ -412,9 +311,12 @@ function HomePage() {
 
           <div className="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {filteredLanguages.map((language) => (
-              <article
+              <Link
                 className="group rounded-2xl border border-slate-200 bg-white p-5 transition hover:border-blue-200 hover:shadow-[0_16px_36px_-24px_rgba(15,23,42,0.3)]"
-                key={language.name}
+                key={language.slug}
+                to="/languages/$slug"
+                params={{ slug: language.slug }}
+                aria-label={`了解 ${language.name} 語言詳情`}
               >
                 <div className="flex items-start gap-4">
                   <span
@@ -432,7 +334,14 @@ function HomePage() {
                     <p className="mt-2 text-sm leading-6 text-slate-600">{language.description}</p>
                   </div>
                 </div>
-              </article>
+                <span className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-blue-700">
+                  查看語言介紹
+                  <ArrowRight
+                    className="h-3.5 w-3.5 transition group-hover:translate-x-1"
+                    aria-hidden="true"
+                  />
+                </span>
+              </Link>
             ))}
           </div>
 

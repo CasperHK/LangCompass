@@ -77,8 +77,9 @@ pnpm dev
 
 # 啟動 Grit API 與前端
 grit start
-
 ```
+
+首次啟動 API 前，請先在 `src/web-frontend` 執行一次 `grit migrate` 建立資料表。Windows 使用者也可從專案根目錄執行 `start-dev.bat`；它會在需要時建立 `.env`、安裝前端相依套件，並啟動 Grit API 與前端。
 
 前端預設位於 `http://localhost:5173`。Grit 專案與 SQLite 資料庫已包含在 `src/web-frontend`，本機開發不需要啟動 Docker。
 
