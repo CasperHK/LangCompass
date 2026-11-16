@@ -95,6 +95,38 @@ func main() {
     related: ["rust", "typescript", "bash"],
   },
   {
+    slug: "java",
+    name: "Java",
+    officialSite: "https://dev.java/",
+    mark: "Java",
+    category: "雲端與分散式",
+    description: "成熟的靜態型別語言，廣泛用於企業後端、雲端服務和跨平台應用。",
+    color: "bg-orange-50 text-orange-700",
+    tagline: "以穩定的 JVM 生態，建構從企業服務到跨平台應用的軟體。",
+    overview:
+      "Java 是一種靜態型別、物件導向程式語言，程式通常編譯為可在 Java 虛擬機器（JVM）執行的位元碼。成熟的工具、函式庫和執行環境，使 Java 常用於企業後端、雲端服務和大型系統。",
+    paradigm: "物件導向・多範式",
+    typeSystem: "靜態・強型別",
+    runtime: "JVM 位元碼與 Java 執行環境",
+    useCases: ["企業後端服務", "雲端與分散式系統", "跨平台應用"],
+    strengths: [
+      "成熟的 JVM 生態提供豐富的函式庫、框架和開發工具。",
+      "靜態型別和廣泛的 IDE 支援有助大型程式碼維護。",
+      "JVM 可在多種作業系統執行，並提供效能調校工具。",
+    ],
+    considerations: [
+      "JVM、建置工具和框架生態需要一定的學習與設定。",
+      "執行期記憶體用量和啟動時間需按部署情境評估。",
+    ],
+    ecosystem: ["JDK", "Maven", "Gradle", "Spring Boot"],
+    example: `class Main {
+    public static void main(String[] args) {
+        System.out.println("Hello, world!");
+    }
+}`,
+    related: ["go", "cpp", "scala"],
+  },
+  {
     slug: "cpp",
     name: "C++",
     officialSite: "https://isocpp.org/",
