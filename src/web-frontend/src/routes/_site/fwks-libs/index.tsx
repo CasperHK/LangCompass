@@ -68,7 +68,8 @@ function FrameworksLibrariesGuidePage() {
                 找到合適的框架與函式庫
               </h1>
               <p className="mt-5 max-w-2xl text-base leading-8 text-slate-600 sm:text-lg">
-                比較常見工具的定位、適用場景與需要留意的成本。先確認要解決的問題，再選擇符合團隊經驗和產品需求的工具。
+                比較常見框架、函式庫與 AI
+                模型架構的定位、適用場景和取捨。先確認要解決的問題，再選擇符合團隊經驗和產品需求的技術。
               </p>
             </div>
             <div className="rounded-2xl border border-violet-100 bg-white p-5 shadow-sm sm:p-6">
@@ -104,8 +105,8 @@ function FrameworksLibrariesGuidePage() {
               </h2>
             </div>
             <p className="text-sm text-slate-500" aria-live="polite">
-              顯示 <span className="font-semibold text-slate-900">{filteredOptions.length}</span> 種
-              工具
+              顯示 <span className="font-semibold text-slate-900">{filteredOptions.length}</span>{" "}
+              項技術選項
             </p>
           </div>
 
@@ -257,7 +258,7 @@ function FrameworksLibrariesGuidePage() {
           ) : (
             <div className="mt-8 rounded-2xl border border-dashed border-slate-300 bg-slate-50 px-6 py-12 text-center">
               <Search className="mx-auto h-6 w-6 text-slate-400" aria-hidden="true" />
-              <p className="mt-3 font-medium text-slate-900">找不到符合條件的框架或函式庫</p>
+              <p className="mt-3 font-medium text-slate-900">找不到符合條件的技術選項</p>
               <p className="mt-1 text-sm text-slate-500">試試其他關鍵字，或重設篩選條件。</p>
               <button
                 className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-violet-700 hover:text-violet-900"

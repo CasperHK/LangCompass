@@ -137,7 +137,12 @@ export const databases: DatabaseProfile[] = [
   },
 ];
 
-export type FrameworkCategory = "前端介面" | "全端應用" | "後端服務" | "跨平台應用";
+export type FrameworkCategory =
+  | "前端介面"
+  | "全端應用"
+  | "後端服務"
+  | "跨平台應用"
+  | "AI 與機器學習";
 
 export interface FrameworkLibraryProfile {
   slug: string;
@@ -145,7 +150,7 @@ export interface FrameworkLibraryProfile {
   officialSite: string;
   language: string;
   category: FrameworkCategory;
-  kind: "框架" | "函式庫";
+  kind: "框架" | "函式庫" | "平台" | "模型架構";
   summary: string;
   bestFor: string;
   strengths: string[];
@@ -158,6 +163,7 @@ export const frameworkCategories: FrameworkCategory[] = [
   "全端應用",
   "後端服務",
   "跨平台應用",
+  "AI 與機器學習",
 ];
 
 export const frameworksLibraries: FrameworkLibraryProfile[] = [
@@ -309,5 +315,134 @@ export const frameworksLibraries: FrameworkLibraryProfile[] = [
       "服務啟動與資源需求需配合部署環境評估",
     ],
     useCases: ["企業 API", "交易型後端", "Java 微服務"],
+  },
+  {
+    slug: "tensorflow",
+    name: "TensorFlow",
+    officialSite: "https://www.tensorflow.org/",
+    language: "Python",
+    category: "AI 與機器學習",
+    kind: "平台",
+    summary: "開源機器學習平台，提供模型建構、訓練和部署的工具與函式庫。",
+    bestFor: "需要以 Python 建立機器學習工作流程，並串接訓練、推論和部署工具的團隊。",
+    strengths: ["涵蓋模型訓練與部署等多個階段", "可配合不同硬體和模型規模使用"],
+    considerations: [
+      "工具範圍廣，需依任務選擇合適 API 和部署方式",
+      "效能與資源使用需以目標硬體和資料驗證",
+    ],
+    useCases: ["深度學習模型", "影像與文字辨識", "模型訓練與推論"],
+  },
+  {
+    slug: "mobilenet",
+    name: "MobileNet",
+    officialSite: "https://keras.io/api/applications/mobilenet/",
+    language: "Python / TensorFlow",
+    category: "AI 與機器學習",
+    kind: "模型架構",
+    summary: "一系列注重運算效率的卷積神經網路架構，常用於行動裝置和邊緣視覺任務。",
+    bestFor: "希望在較受限的運算和記憶體環境執行影像分類等視覺模型的專案。",
+    strengths: ["以較低運算需求作為設計目標", "可透過 Keras Applications 使用模型與預訓練權重"],
+    considerations: [
+      "模型大小、速度和準確率需按實際資料集及裝置測試",
+      "部署前仍需選擇合適版本並評估量化或轉換需求",
+    ],
+    useCases: ["行動影像分類", "邊緣裝置視覺", "輕量化深度學習模型"],
+  },
+  {
+    slug: "laravel",
+    name: "Laravel",
+    officialSite: "https://laravel.com/",
+    language: "PHP",
+    category: "全端應用",
+    kind: "框架",
+    summary: "以開發者體驗和豐富內建功能為特色的 PHP Web 應用框架。",
+    bestFor: "希望快速建立資料驅動網站、管理後台或 API，並採用完整框架慣例的 PHP 團隊。",
+    strengths: ["提供路由、ORM、佇列和驗證等整合工具", "生態系涵蓋常見 Web 開發需求"],
+    considerations: ["需熟悉框架慣例和服務生命週期", "應依流量、部署環境和團隊需求選擇配套服務"],
+    useCases: ["商業網站", "管理後台", "PHP API 服務"],
+  },
+  {
+    slug: "grit-framework",
+    name: "Grit Framework",
+    officialSite: "https://gritframework.dev/",
+    language: "Go",
+    category: "後端服務",
+    kind: "框架",
+    summary: "Go 後端框架，整合 Gin HTTP API 與 GORM 資料存取工具。",
+    bestFor: "使用 Go 建立 API，並希望以整合式專案架構連結路由和資料層的團隊。",
+    strengths: ["結合 Go、Gin 與 GORM 的後端開發流程", "可沿用 Go 生態中的工具與部署方式"],
+    considerations: [
+      "需先熟悉框架本身的專案慣例與底層套件",
+      "資料模型、遷移與服務部署仍需依專案規模規劃",
+    ],
+    useCases: ["Go Web API", "資料驅動服務", "Go 後端專案"],
+  },
+  {
+    slug: "salvo",
+    name: "Salvo",
+    officialSite: "https://salvo.rs/",
+    language: "Rust",
+    category: "後端服務",
+    kind: "框架",
+    summary: "以 Rust 建構 Web 服務的框架，提供路由、請求處理和常見 Web 功能。",
+    bestFor: "希望使用 Rust 建立 HTTP API 或 Web 服務，並重視型別安全與執行效能的團隊。",
+    strengths: ["以 Rust 型別系統支援 Web 服務開發", "提供路由、中介層和 OpenAPI 等整合能力"],
+    considerations: ["Rust 非同步程式設計和所有權模型需要學習", "需確認生態套件與部署需求的相容性"],
+    useCases: ["HTTP API", "非同步 Web 服務", "Rust 後端應用"],
+  },
+  {
+    slug: "codeigniter",
+    name: "CodeIgniter",
+    officialSite: "https://codeigniter.com/",
+    language: "PHP",
+    category: "全端應用",
+    kind: "框架",
+    summary: "輕量 PHP Web 框架，提供精簡核心以建立網站和應用程式。",
+    bestFor: "需要較小框架核心、直接掌控應用結構，或維護既有 CodeIgniter 專案的 PHP 團隊。",
+    strengths: ["核心精簡、上手門檻相對低", "可用於小型網站和一般 Web 應用"],
+    considerations: ["與大型框架相比，部分功能需自行整合", "需留意專案版本、套件相容性及維護狀況"],
+    useCases: ["中小型網站", "PHP 管理系統", "既有 CodeIgniter 應用"],
+  },
+  {
+    slug: "symfony",
+    name: "Symfony",
+    officialSite: "https://symfony.com/",
+    language: "PHP",
+    category: "全端應用",
+    kind: "框架",
+    summary: "由可重用元件組成的 PHP Web 框架，適合建立結構化且可長期維護的應用。",
+    bestFor: "需要明確架構、可組合元件，或依賴成熟 PHP 生態的中大型專案。",
+    strengths: ["元件可獨立重用，架構彈性高", "文件、工具和企業級整合資源豐富"],
+    considerations: ["元件和架構選擇需要團隊建立慣例", "完整功能和設定可能增加初期學習成本"],
+    useCases: ["企業 Web 應用", "API 平台", "可重用 PHP 元件"],
+  },
+  {
+    slug: "phalcon",
+    name: "Phalcon",
+    officialSite: "https://phalcon.io/",
+    language: "PHP",
+    category: "後端服務",
+    kind: "框架",
+    summary: "以效能為設計重點的 PHP 框架，提供 MVC、ORM 和服務元件。",
+    bestFor: "已評估執行環境與套件相容性，並希望使用 Phalcon 建立 PHP 服務的團隊。",
+    strengths: ["提供常見 Web 與資料存取元件", "以效能和較低執行開銷為專案特色"],
+    considerations: [
+      "需確認 PHP 版本、擴充安裝和部署環境相容性",
+      "團隊與套件生態規模需納入維護評估",
+    ],
+    useCases: ["PHP API", "MVC Web 應用", "效能敏感服務"],
+  },
+  {
+    slug: "cakephp",
+    name: "CakePHP",
+    officialSite: "https://cakephp.org/",
+    language: "PHP",
+    category: "全端應用",
+    kind: "框架",
+    summary: "採慣例優於設定的 PHP Web 框架，提供常見資料驅動應用所需元件。",
+    bestFor: "希望以明確慣例快速建立資料庫導向網站，並減少重複樣板工作的 PHP 團隊。",
+    strengths: ["內建 ORM、驗證和程式碼產生等工具", "一致慣例有助快速建立標準 Web 功能"],
+    considerations: ["需理解框架慣例並按其方式組織應用", "選用外掛前應確認版本支援與維護狀態"],
+    useCases: ["資料管理網站", "商業 Web 應用", "PHP CRUD 系統"],
   },
 ];

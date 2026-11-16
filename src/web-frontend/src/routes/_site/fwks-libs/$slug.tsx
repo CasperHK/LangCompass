@@ -23,7 +23,7 @@ function FrameworkLibraryDetailPage() {
     return (
       <div className="px-6 py-24 text-center">
         <p className="text-sm font-semibold text-violet-700">404</p>
-        <h1 className="mt-3 text-3xl font-semibold text-slate-950">找不到這項框架或函式庫</h1>
+        <h1 className="mt-3 text-3xl font-semibold text-slate-950">找不到這項技術選項</h1>
         <p className="mt-3 text-slate-600">回到圖鑑，依語言和應用情境探索其他選項。</p>
         <Link
           className="mt-7 inline-flex items-center gap-2 rounded-xl bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-violet-700"
@@ -127,12 +127,7 @@ function FrameworkLibraryDetailPage() {
                   <div className="ml-5 border-l border-dashed border-violet-300 py-0.5">
                     <ArrowDown className="ml-[-9px] h-4 w-4 bg-violet-50 text-violet-500" />
                   </div>
-                  <FitStep
-                    featured
-                    number="02"
-                    label={option.kind}
-                    value={option.name}
-                  />
+                  <FitStep featured number="02" label={option.kind} value={option.name} />
                   <div className="ml-5 border-l border-dashed border-violet-300 py-0.5">
                     <ArrowDown className="ml-[-9px] h-4 w-4 bg-violet-50 text-violet-500" />
                   </div>
@@ -281,9 +276,7 @@ function FitStep({
   return (
     <div
       className={`flex items-center gap-3 rounded-xl border p-3.5 ${
-        featured
-          ? "border-violet-300 bg-white shadow-sm"
-          : "border-white/80 bg-white/70"
+        featured ? "border-violet-300 bg-white shadow-sm" : "border-white/80 bg-white/70"
       }`}
     >
       <span
