@@ -3,11 +3,15 @@ export type LanguageCategory =
   | "Web 與全端"
   | "資料科學與 AI"
   | "雲端與分散式"
-  | "晶片設計";
+  | "晶片設計"
+  | "應用程式與行動"
+  | "遊戲與互動"
+  | "資料庫與查詢";
 
 export interface LanguageProfile {
   slug: string;
   name: string;
+  officialSite: string;
   mark: string;
   category: LanguageCategory;
   description: string;
@@ -29,6 +33,7 @@ export const languages: LanguageProfile[] = [
   {
     slug: "rust",
     name: "Rust",
+    officialSite: "https://www.rust-lang.org/",
     mark: "Rs",
     category: "系統與效能",
     description: "以記憶體安全與效能著稱，適合系統程式和可靠的後端服務。",
@@ -58,6 +63,7 @@ export const languages: LanguageProfile[] = [
   {
     slug: "go",
     name: "Go",
+    officialSite: "https://go.dev/",
     mark: "Go",
     category: "雲端與分散式",
     description: "簡潔、易部署的編譯語言，常見於雲端服務與開發者工具。",
@@ -91,6 +97,7 @@ func main() {
   {
     slug: "cpp",
     name: "C++",
+    officialSite: "https://isocpp.org/",
     mark: "C++",
     category: "系統與效能",
     description: "兼具低階控制與抽象能力，廣泛應用於遊戲、系統和高效能運算。",
@@ -122,6 +129,7 @@ int main() {
   {
     slug: "zig",
     name: "Zig",
+    officialSite: "https://ziglang.org/",
     mark: "Z",
     category: "系統與效能",
     description: "重視可預測性與明確控制的新興系統語言。",
@@ -153,6 +161,7 @@ pub fn main() void {
   {
     slug: "typescript",
     name: "TypeScript",
+    officialSite: "https://www.typescriptlang.org/",
     mark: "TS",
     category: "Web 與全端",
     description: "為 JavaScript 加上型別，適合規模化的前端與全端應用。",
@@ -184,6 +193,7 @@ const greet = ({ name }: Greeting) => \`Hello, \${name}!\`;`,
   {
     slug: "javascript",
     name: "JavaScript",
+    officialSite: "https://tc39.es/ecma262/",
     mark: "JS",
     category: "Web 與全端",
     description: "驅動網頁互動的核心語言，也能用於伺服器與跨平台開發。",
@@ -215,6 +225,7 @@ greet("world");`,
   {
     slug: "dart",
     name: "Dart",
+    officialSite: "https://dart.dev/",
     mark: "D",
     category: "Web 與全端",
     description: "搭配 Flutter 建構行動、網頁與桌面應用程式。",
@@ -245,6 +256,7 @@ greet("world");`,
   {
     slug: "python",
     name: "Python",
+    officialSite: "https://www.python.org/",
     mark: "Py",
     category: "資料科學與 AI",
     description: "語法易讀、套件豐富，常用於自動化、資料科學與 AI。",
@@ -275,6 +287,7 @@ print(greet("world"))`,
   {
     slug: "julia",
     name: "Julia",
+    officialSite: "https://julialang.org/",
     mark: "Jl",
     category: "資料科學與 AI",
     description: "為科學計算而生，兼顧高階語法與數值運算效能。",
@@ -306,6 +319,7 @@ greet("world")`,
   {
     slug: "r",
     name: "R",
+    officialSite: "https://www.r-project.org/",
     mark: "R",
     category: "資料科學與 AI",
     description: "專注統計分析與資料視覺化，深受研究與分析工作者使用。",
@@ -337,6 +351,7 @@ cat(greet("world"), "\\n")`,
   {
     slug: "bash",
     name: "Bash",
+    officialSite: "https://www.gnu.org/software/bash/",
     mark: "$_",
     category: "雲端與分散式",
     description: "串接命令列工具、自動化工作流程與伺服器維運。",
@@ -368,6 +383,7 @@ printf 'Hello, %s!\\n' "$name"`,
   {
     slug: "veryl",
     name: "Veryl",
+    officialSite: "https://veryl-lang.org/",
     mark: "V",
     category: "晶片設計",
     description: "面向 FPGA 與硬體開發的現代硬體描述語言。",
@@ -394,6 +410,7 @@ printf 'Hello, %s!\\n' "$name"`,
   {
     slug: "spade",
     name: "Spade",
+    officialSite: "https://github.com/spade-lang/spade",
     mark: "Sp",
     category: "晶片設計",
     description: "提供型別安全與現代語法的硬體描述語言。",
