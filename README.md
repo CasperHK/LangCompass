@@ -24,18 +24,21 @@
 本站將程式語言與技術生態劃分為以下核心板塊，方便快速檢索：
 
 1. **系統級與高效能運算 (Systems & High-Performance)**
-   - *代表語言*：Rust, Go, C++, C, Goose, Nim, Zig, Odin, Carbon, D, V
+   - *代表語言*：Rust, C++, C, Goose, Nim, Zig, Odin, Carbon, D, V
    - *適用場景*：底層基礎設施、分散式系統、微服務核心、嵌入式開發。
 2. **現代 Web 與全端應用 (Modern Web & Full-Stack)**
    - *代表語言*：TypeScript, JavaScript, Dart, PHP, Perl, CoffeeScript
    - *適用場景*：高效能 Web 應用、跨平台前端、動態服務端渲染。
-3. **資料科學與人工智慧 (Data Science & AI)**
+3. **後端應用**：
+   - *代表語言*：Java, C#, G#, Go
+   - *適用場景*：
+4. **資料科學與人工智慧 (Data Science & AI)**
    - *代表語言*：Python, Julia, R, MATLAB, Mojo
    - *適用場景*：機器學習模型訓練、大數據管線、科學計算、自動化腳本。
-4. **雲端原生與分散式基礎設施 (Cloud-Native & Distributed)**
+5. **雲端原生與分散式基礎設施 (Cloud-Native & Distributed)**
    - *代表語言*：Go, Rust, Shell/Bash
    - *適用場景*：容器化工具、網格運算、自動化运维與命令列工具。
-5. **晶片設計（Chip Design）**
+6. **晶片設計（Chip Design）**
    - *代表語言*：Veryl, Spade
 
 ---
